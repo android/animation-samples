@@ -14,54 +14,53 @@
  * limitations under the License.
  */
 
-package com.example.android.motion.demo.dissolve
+package com.example.android.motion.demo.fadethrough
 
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.observe
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.transition.TransitionManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.android.motion.R
-import com.example.android.motion.demo.FAST_OUT_SLOW_IN
+import com.example.android.motion.demo.fadeThrough
 import com.example.android.motion.ui.EdgeToEdge
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 
-class DissolveActivity : AppCompatActivity() {
-
-    private val viewModel: DissolveViewModel by viewModels()
+class FadeThroughActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dissolve_activity)
+        setContentView(R.layout.fade_through_activity)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
-        val image: ImageView = findViewById(R.id.image)
         val card: MaterialCardView = findViewById(R.id.card)
-        val next: MaterialButton = findViewById(R.id.next)
+        val contact: ConstraintLayout = findViewById(R.id.card_contact)
+        val cheese: ConstraintLayout = findViewById(R.id.card_cheese)
+        val toggle: MaterialButton = findViewById(R.id.toggle)
+        val icon: ImageView = findViewById(R.id.contact_icon)
 
+        // Set up the layout.
         setSupportActionBar(toolbar)
         EdgeToEdge.setUpRoot(findViewById(R.id.root))
         EdgeToEdge.setUpAppBar(findViewById(R.id.app_bar), toolbar)
         EdgeToEdge.setUpScrollingContent(findViewById(R.id.content))
+        Glide.with(icon).load(R.drawable.cheese_2).transform(CircleCrop()).into(icon)
 
-        // This is the transition we use for dissolve effect of the image view.
-        val dissolve = Dissolve().apply {
-            addTarget(image)
-            duration = 200L
-            interpolator = FAST_OUT_SLOW_IN
-        }
-        viewModel.image.observe(this) { resId ->
-            // This delays the dissolve to be invoked at the next draw frame.
-            TransitionManager.beginDelayedTransition(card, dissolve)
-            // Here, we are simply changing the image shown on the image view. The animation is
-            // handled by the transition API.
-            image.setImageResource(resId)
-        }
+        // This is the transition we use for the fade-through effect.
+        val fadeThrough = fadeThrough()
 
-        card.setOnClickListener { viewModel.nextImage() }
-        next.setOnClickListener { viewModel.nextImage() }
+        toggle.setOnClickListener {
+            // Delays the fade-through transition until the layout change below takes effect.
+            TransitionManager.beginDelayedTransition(card, fadeThrough)
+            // We are only toggling the visibilities of the card contents here.
+            contact.isVisible = !contact.isVisible
+            cheese.isVisible = !cheese.isVisible
+        }
     }
+
 }

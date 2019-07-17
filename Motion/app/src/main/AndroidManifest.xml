@@ -45,6 +45,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".demo.fadethrough.FadeThroughActivity"
+            android:label="@string/fade_through_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.example.android.motion.intent.category.DEMO" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
