@@ -23,15 +23,21 @@ data class Cheese(
     val id: Long,
     val name: String,
     @DrawableRes
-    val image: Int
+    val image: Int,
+    val imageWidth: Int,
+    val imageHeight: Int
 ) {
     companion object {
         val ALL: List<Cheese> by lazy {
             NAMES.mapIndexed { index, name ->
+                val imageIndex = ((name.hashCode() % IMAGES.size) + IMAGES.size) % IMAGES.size
+                val (width, height) = IMAGE_SIZES[imageIndex]
                 Cheese(
                     (index + 1).toLong(),
                     name,
-                    IMAGES[((name.hashCode() % IMAGES.size) + IMAGES.size) % IMAGES.size]
+                    IMAGES[imageIndex],
+                    width,
+                    height
                 )
             }
         }
@@ -42,6 +48,14 @@ data class Cheese(
             R.drawable.cheese_3,
             R.drawable.cheese_4,
             R.drawable.cheese_5
+        )
+
+        private val IMAGE_SIZES = listOf(
+            Pair(640, 640),
+            Pair(640, 589),
+            Pair(640, 480),
+            Pair(1024, 683),
+            Pair(1024, 683)
         )
 
         @Suppress("SpellCheckingInspection")
