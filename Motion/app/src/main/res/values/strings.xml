@@ -37,4 +37,7 @@
     <string name="reorder_label">List > Reorder</string>
     <string name="drag_hint">%s clicked. Long press to start dragging.</string>
 
+    <!-- Stagger -->
+    <string name="stagger_label">List > Stagger</string>
+    <string name="refresh">Refresh</string>
 </resources>

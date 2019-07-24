@@ -56,8 +56,16 @@
 
         <activity
             android:name=".demo.reorder.ReorderActivity"
-            android:label="@string/reorder_label"
-            android:theme="@style/Theme.Motion">
+            android:label="@string/reorder_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.example.android.motion.intent.category.DEMO" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".demo.stagger.StaggerActivity"
+            android:label="@string/stagger_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.example.android.motion.intent.category.DEMO" />
