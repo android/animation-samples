@@ -14,10 +14,12 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<resources>
-    <dimen name="spacing_medium">16dp</dimen>
-    <dimen name="spacing_small">8dp</dimen>
-    <dimen name="spacing_tiny">4dp</dimen>
-    <dimen name="pick_up_elevation">8dp</dimen>
-    <dimen name="icon_size">24dp</dimen>
-</resources>
+<fragment
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_host"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/shared_element" />

@@ -32,7 +32,7 @@ import com.example.android.motion.model.Cheese
 
 class CheeseGridAdapter(
     private val onItemLongClick: (holder: RecyclerView.ViewHolder) -> Unit
-) : ListAdapter<Cheese, CheeseViewHolder>(DIFF_CALLBACK) {
+) : ListAdapter<Cheese, CheeseViewHolder>(Cheese.DIFF_CALLBACK) {
 
     init {
         setHasStableIds(true)
@@ -65,21 +65,11 @@ class CheeseGridAdapter(
     }
 }
 
-private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Cheese>() {
-    override fun areItemsTheSame(oldItem: Cheese, newItem: Cheese): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: Cheese, newItem: Cheese): Boolean {
-        return oldItem == newItem
-    }
-}
-
 class CheeseViewHolder(
     parent: ViewGroup
 ) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context)
-        .inflate(R.layout.cheese_grid_item, parent, false)
+        .inflate(R.layout.cheese_staggered_grid_item, parent, false)
 ) {
 
     private val constraintLayout: ConstraintLayout = itemView.findViewById(R.id.cheese)

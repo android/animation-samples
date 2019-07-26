@@ -72,6 +72,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".demo.sharedelement.SharedElementActivity"
+            android:label="@string/shared_element_label"
+            android:theme="@style/Theme.Motion.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.example.android.motion.intent.category.DEMO" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

@@ -14,10 +14,22 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<resources>
-    <dimen name="spacing_medium">16dp</dimen>
-    <dimen name="spacing_small">8dp</dimen>
-    <dimen name="spacing_tiny">4dp</dimen>
-    <dimen name="pick_up_elevation">8dp</dimen>
-    <dimen name="icon_size">24dp</dimen>
-</resources>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:icon="@drawable/ic_share"
+        android:title="@string/share"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/favorite"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:icon="@drawable/ic_bookmark"
+        android:title="@string/bookmark"
+        app:showAsAction="ifRoom" />
+
+</menu>

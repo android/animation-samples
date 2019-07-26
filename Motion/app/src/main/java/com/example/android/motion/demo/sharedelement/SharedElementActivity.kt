@@ -14,27 +14,18 @@
  * limitations under the License.
  */
 
-buildscript {
-    ext.kotlin_version = '1.3.41'
-    ext.navigation_version = '2.1.0-beta02'
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0-rc01'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
-    }
-}
+package com.example.android.motion.demo.sharedelement
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.android.motion.R
+import com.example.android.motion.ui.EdgeToEdge
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+class SharedElementActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.shared_element_activity)
+        EdgeToEdge.setUpRoot(findViewById(R.id.nav_host))
+    }
 }

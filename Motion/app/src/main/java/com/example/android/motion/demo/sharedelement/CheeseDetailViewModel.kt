@@ -14,27 +14,22 @@
  * limitations under the License.
  */
 
-buildscript {
-    ext.kotlin_version = '1.3.41'
-    ext.navigation_version = '2.1.0-beta02'
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0-rc01'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
-    }
-}
+package com.example.android.motion.demo.sharedelement
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.android.motion.model.Cheese
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+class CheeseDetailViewModel : ViewModel() {
+
+    private val _cheese = MutableLiveData<Cheese?>()
+    val cheese: LiveData<Cheese?> = _cheese
+
+    var cheeseId: Long?
+        get() = _cheese.value?.id
+        set(value) {
+            _cheese.value = Cheese.ALL.find { it.id == value }
+        }
+
 }

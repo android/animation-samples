@@ -26,4 +26,14 @@
         <item name="colorSecondary">@color/secondary</item>
     </style>
 
+    <style name="Theme.Motion.Translucent">
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/dark_scrim</item>
+    </style>
+
+    <style name="Widget.Motion.ImageView.Icon" parent="android:Widget">
+        <item name="android:padding">4dp</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:tint">?attr/colorPrimary</item>
+    </style>
+
 </resources>

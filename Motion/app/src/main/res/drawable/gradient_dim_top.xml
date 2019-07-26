@@ -13,11 +13,15 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
--->
-<resources>
-    <dimen name="spacing_medium">16dp</dimen>
-    <dimen name="spacing_small">8dp</dimen>
-    <dimen name="spacing_tiny">4dp</dimen>
-    <dimen name="pick_up_elevation">8dp</dimen>
-    <dimen name="icon_size">24dp</dimen>
-</resources>
+  -->
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <gradient
+        android:angle="90"
+        android:endColor="@color/dark_scrim"
+        android:startColor="@android:color/transparent"
+        android:type="linear" />
+
+</shape>

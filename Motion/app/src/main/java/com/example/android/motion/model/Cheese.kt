@@ -17,6 +17,7 @@
 package com.example.android.motion.model
 
 import androidx.annotation.DrawableRes
+import androidx.recyclerview.widget.DiffUtil
 import com.example.android.motion.R
 
 data class Cheese(
@@ -57,6 +58,16 @@ data class Cheese(
             Pair(1024, 683),
             Pair(1024, 683)
         )
+
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Cheese>() {
+            override fun areItemsTheSame(oldItem: Cheese, newItem: Cheese): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: Cheese, newItem: Cheese): Boolean {
+                return oldItem == newItem
+            }
+        }
 
         @Suppress("SpellCheckingInspection")
         val NAMES = listOf(

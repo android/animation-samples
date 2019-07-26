@@ -18,6 +18,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:foreground="?attr/selectableItemBackground">
@@ -31,32 +32,89 @@
         <ImageView
             android:id="@+id/image"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="128dp"
             android:contentDescription="@null"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toTopOf="@id/name"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_constraintDimensionRatio="H,4:3"
             tools:src="@drawable/cheese_1" />
+
+        <com.example.android.motion.demo.sharedelement.MirrorView
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_medium"
-            android:layout_marginLeft="@dimen/spacing_medium"
-            android:layout_marginTop="@dimen/spacing_small"
-            android:layout_marginEnd="@dimen/spacing_medium"
-            android:layout_marginRight="@dimen/spacing_medium"
-            android:layout_marginBottom="@dimen/spacing_small"
+            android:layout_height="?attr/listPreferredItemHeightSmall"
+            android:background="@drawable/gradient_dim_bottom"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingEnd="@dimen/spacing_medium"
             android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="#fff"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Cheese" />
+
+        <com.example.android.motion.demo.sharedelement.MirrorView
+            android:id="@+id/body"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image" />
+
+        <ImageView
+            android:id="@+id/favorite"
+            style="@style/Widget.Motion.ImageView.Icon"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:contentDescription="@string/favorite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/bookmark"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image"
-            tools:text="Cheese" />
+            app:srcCompat="@drawable/ic_favorite" />
+
+        <ImageView
+            android:id="@+id/bookmark"
+            style="@style/Widget.Motion.ImageView.Icon"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:contentDescription="@string/bookmark"
+            app:layout_constraintBottom_toBottomOf="@id/favorite"
+            app:layout_constraintEnd_toStartOf="@id/share"
+            app:layout_constraintStart_toEndOf="@id/favorite"
+            app:layout_constraintTop_toTopOf="@id/favorite"
+            app:srcCompat="@drawable/ic_bookmark" />
+
+        <ImageView
+            android:id="@+id/share"
+            style="@style/Widget.Motion.ImageView.Icon"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:contentDescription="@string/share"
+            app:layout_constraintBottom_toBottomOf="@id/favorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bookmark"
+            app:layout_constraintTop_toTopOf="@id/favorite"
+            app:srcCompat="@drawable/ic_share" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

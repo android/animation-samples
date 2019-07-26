@@ -29,7 +29,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.android.motion.R
 import com.example.android.motion.model.Cheese
 
-class CheeseListAdapter : ListAdapter<Cheese, CheeseViewHolder>(DIFF_CALLBACK) {
+class CheeseListAdapter : ListAdapter<Cheese, CheeseViewHolder>(Cheese.DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheeseViewHolder {
         return CheeseViewHolder(parent)
@@ -37,16 +37,6 @@ class CheeseListAdapter : ListAdapter<Cheese, CheeseViewHolder>(DIFF_CALLBACK) {
 
     override fun onBindViewHolder(holder: CheeseViewHolder, position: Int) {
         holder.bind(getItem(position))
-    }
-}
-
-private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Cheese>() {
-    override fun areItemsTheSame(oldItem: Cheese, newItem: Cheese): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: Cheese, newItem: Cheese): Boolean {
-        return oldItem == newItem
     }
 }
 
