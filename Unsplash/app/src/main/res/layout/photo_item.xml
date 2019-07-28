@@ -1,0 +1,47 @@
+<!--
+  ~ Copyright (C) 2016 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="data" type="com.example.android.unsplash.data.model.Photo" />
+    </data>
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="@dimen/image_height"
+                 android:stateListAnimator="@animator/raise"
+                 android:foreground="@drawable/grey_ripple"
+                 android:transitionGroup="true">
+        <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:transitionName="@{@string/transition_photo + data.id}" />
+
+        <TextView android:id="@+id/author"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="@{data.author}"
+                  android:layout_gravity="bottom|end"
+                  android:textColor="@color/placeholder"
+                  android:lines="1"
+                  android:paddingTop="@dimen/padding_small"
+                  android:paddingBottom="@dimen/padding_small"
+                  android:paddingStart="@dimen/padding_normal"
+                  android:paddingEnd="@dimen/padding_normal"
+                  android:background="@color/author_background"
+                  android:transitionName="@{@string/transition_author + data.id}" />
+    </FrameLayout>
+</layout>

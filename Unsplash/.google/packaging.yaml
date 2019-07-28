@@ -1,0 +1,23 @@
+# GOOGLE SAMPLE PACKAGING DATA
+#
+# This file is used by Google as part of our samples packaging process.
+# End users may safely ignore this file. It has no relevance to other systems.
+---
+status:       PUBLISHED
+technologies: [Android]
+categories:   [Design]
+languages:    [Java]
+solutions:    [Mobile]
+
+github:       android/animation
+
+level:        INTERMEDIATE
+
+apiRefs:
+    - android:android.animation.Animator
+    - android:android.animation.AnimatorListenerAdapter
+    - android:android.animation.ArgbEvaluator
+    - android:android.animation.ObjectAnimator
+    - android:android.support.v7.widget.RecyclerView
+
+license: apache2
