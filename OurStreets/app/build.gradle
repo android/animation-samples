@@ -1,0 +1,69 @@
+/*
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        applicationId "com.google.samples.apps.ourstreets"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        // This url is being defined in gradle.properties and can be changed from there.
+        buildConfigField "String", "GALLERIES_URL", "\"${galleries_url}\""
+        buildConfigField "String", "DETAIL_URL", "\"${detail_url}\""
+    }
+    buildTypes {
+        debug {
+            resValue "string", "google_maps_key", "\"${maps_api_key}\""
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+    }
+}
+
+ext {
+    appCompatVersion = "24.0.0"
+    firebaseVersion = "2.3.1"
+    mapsVersion = "9.4.0"
+    mapsUtilsVersion = "0.4"
+    hamcrestVersion = "1.3"
+}
+
+dependencies {
+    compile "com.android.support:appcompat-v7:${appCompatVersion}"
+    compile "com.android.support:cardview-v7:${appCompatVersion}"
+    compile "com.android.support:design:${appCompatVersion}"
+    compile "com.android.support:recyclerview-v7:${appCompatVersion}"
+    compile "com.firebase:firebase-client-android:${firebaseVersion}"
+    compile "com.google.android.gms:play-services-maps:${mapsVersion}"
+    compile "com.google.maps.android:android-maps-utils:${mapsUtilsVersion}"
+    testCompile 'junit:junit:4.12'
+    testCompile "org.hamcrest:hamcrest-core:${hamcrestVersion}"
+    testCompile "org.hamcrest:hamcrest-library:${hamcrestVersion}"
+}

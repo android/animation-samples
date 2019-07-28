@@ -1,0 +1,57 @@
+<!--
+  ~ Copyright 2015 Google Inc. All Rights Reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <style name="OurStreets" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="rippleColor">@color/ripple</item>
+        <item name="colorAccent">@color/theme_accent</item>
+        <item name="colorPrimaryDark">@color/blue_grey_900</item>
+        <item name="colorPrimary">@color/blue_grey_800</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:colorForeground">@color/foreground</item>
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+    </style>
+
+    <style name="OurStreets.Gallery">
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:transitionGroup">false</item>
+        <item name="android:background">@color/blue_grey_600</item>
+    </style>
+
+    <style name="OurStreets.Gallery.Grid">
+        <item name="layoutManager">LinearLayoutManager</item>
+    </style>
+
+    <style name="OurStreets.Title" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/foreground</item>
+    </style>
+
+    <style name="OurStreets.Detail" />
+
+    <style name="OurStreets.Detail.Fab">
+        <item name="backgroundTint">@color/theme_accent</item>
+        <item name="fabSize">normal</item>
+        <item name="layout_anchor">@id/description_layout</item>
+        <item name="layout_anchorGravity">top|end</item>
+        <item name="android:layout_marginEnd">@dimen/grid_double</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+</resources>

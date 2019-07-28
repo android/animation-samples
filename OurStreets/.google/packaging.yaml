@@ -1,0 +1,36 @@
+# GOOGLE SAMPLE PACKAGING DATA
+#
+# This file is used by Google as part of our samples packaging process.
+# End users may safely ignore this file. It has no relevance to other systems.
+---
+status:       PUBLISHED
+technologies: [Android]
+categories:   [Design]
+languages:    [Java]
+solutions:    [Mobile]
+
+github:       android/animation
+
+level:        INTERMEDIATE
+
+icon:         app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+
+apiRefs:
+    - android:android.animation.Animator
+    - android:android.animation.AnimatorListenerAdapter
+    - android:android.animation.AnimatorSet
+    - android:android.animation.ArgbEvaluator
+    - android:android.animation.ObjectAnimator
+    - android:android.annotation.SuppressLint
+    - android:android.view.animation.Interpolator
+    - android:android.support.v7.widget.RecyclerView
+    - google:com.google.android.gms.maps.model.CameraUpdateFactory
+    - google:com.google.android.gms.maps.model.GoogleMap
+    - google:com.google.android.gms.maps.model.MapView
+    - google:com.google.android.gms.maps.StreetViewPanorama
+    - google:com.google.maps.android.clustering.Cluster
+    - google:com.google.maps.android.clustering.ClusterItem
+    - google:com.google.maps.android.clustering.ClusterManager
+    - google:com.google.maps.android.clustering.view.DefaultClusterRenderer
+
+license: apache2

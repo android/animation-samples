@@ -1,0 +1,31 @@
+<!--
+  ~ Copyright 2015 Google Inc. All Rights Reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <dimen name="grid_double">16dp</dimen>
+    <dimen name="grid_single">8dp</dimen>
+    <dimen name="grid_half">4dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="padding_map">150dp</dimen>
+    <dimen name="touch_raise">6dp</dimen>
+    <dimen name="gallery_item_height">225dp</dimen>
+    <dimen name="detail_description_width">225dp</dimen>
+    <dimen name="description_title_end_margin">56dp</dimen>
+    <dimen name="description_elevation">2dp</dimen>
+    <item type="fraction" name="icon_viewport_size">24.0</item>
+    <integer name="max_lines_desc">8</integer>
+</resources>

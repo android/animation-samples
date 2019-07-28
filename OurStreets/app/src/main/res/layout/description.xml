@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2015 Google Inc. All Rights Reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/description_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_grey_800"
+        android:paddingStart="@dimen/grid_single"
+        android:paddingEnd="@dimen/grid_single"
+        android:orientation="vertical"
+        android:elevation="@dimen/description_elevation"
+        android:transitionName="@string/transition_description"
+        tools:ignore="Overdraw">
+
+    <TextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/grid_single"
+            android:layout_marginEnd="@dimen/description_title_end_margin"
+            android:transitionName="@string/transition_description_title"
+            style="@style/OurStreets.Title" />
+
+    <TextView
+            android:id="@+id/text_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:paddingStart="@dimen/grid_single"
+            android:paddingEnd="@dimen/grid_single"
+            android:paddingBottom="@dimen/grid_double"
+            android:transitionName="@string/transition_description_detail" />
+
+</LinearLayout>
