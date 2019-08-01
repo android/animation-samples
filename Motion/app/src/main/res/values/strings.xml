@@ -44,4 +44,7 @@
 
     <!-- Shared Element -->
     <string name="shared_element_label">Navigation > Shared element</string>
+
+    <!-- Nav Fade Through -->
+    <string name="nav_fade_through_label">Navigation > Fade through</string>
 </resources>

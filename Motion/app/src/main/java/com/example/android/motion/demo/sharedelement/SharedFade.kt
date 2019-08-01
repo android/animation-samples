@@ -69,8 +69,6 @@ class SharedFade : Transition() {
         }
         val startView = startValues.view ?: return null
         val endView = endValues.view ?: return null
-        endView.pivotX = 0f
-        endView.pivotY = 0f
         if (startView is MirrorView) {
             // The view is appearing. We animate the substance view.
             // The MirrorView was used merely for matching the layout position by other Transitions.

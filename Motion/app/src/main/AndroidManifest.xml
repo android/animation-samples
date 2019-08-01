@@ -82,6 +82,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".demo.navfadethrough.NavFadeThroughActivity"
+            android:label="@string/nav_fade_through_label"
+            android:theme="@style/Theme.Motion.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.example.android.motion.intent.category.DEMO" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
