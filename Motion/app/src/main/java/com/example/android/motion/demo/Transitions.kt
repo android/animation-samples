@@ -37,7 +37,6 @@ import androidx.transition.TransitionSet
 fun fadeThrough(): Transition {
     return transitionTogether {
         interpolator = FAST_OUT_SLOW_IN
-        duration = 300L
         this += ChangeBounds()
         this += transitionSequential {
             addTransition(Fade(Fade.OUT))

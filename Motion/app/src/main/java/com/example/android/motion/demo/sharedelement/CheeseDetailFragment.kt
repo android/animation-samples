@@ -38,9 +38,12 @@ import androidx.navigation.fragment.navArgs
 import androidx.transition.ChangeBounds
 import androidx.transition.ChangeImageTransform
 import androidx.transition.ChangeTransform
+import androidx.transition.Transition
 import com.bumptech.glide.Glide
 import com.example.android.motion.R
 import com.example.android.motion.demo.FAST_OUT_SLOW_IN
+import com.example.android.motion.demo.LARGE_COLLAPSE_DURATION
+import com.example.android.motion.demo.LARGE_EXPAND_DURATION
 import com.example.android.motion.demo.doOnEnd
 import com.example.android.motion.demo.plusAssign
 import com.example.android.motion.demo.transitionTogether
@@ -70,18 +73,22 @@ class CheeseDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // This is the shared element transition.
-        // Note that this is also used for return transition.
-        sharedElementEnterTransition = transitionTogether {
-            duration = 300L
+        // These are the shared element transitions.
+        sharedElementEnterTransition = createSharedElementTransition(LARGE_EXPAND_DURATION)
+        sharedElementReturnTransition = createSharedElementTransition(LARGE_COLLAPSE_DURATION)
+
+        viewModel.cheeseId = args.cheeseId
+    }
+
+    private fun createSharedElementTransition(duration: Long): Transition {
+        return transitionTogether {
+            this.duration = duration
             interpolator = FAST_OUT_SLOW_IN
             this += SharedFade()
             this += ChangeImageTransform()
             this += ChangeBounds()
             this += ChangeTransform()
         }
-
-        viewModel.cheeseId = args.cheeseId
     }
 
     override fun onCreateView(

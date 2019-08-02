@@ -14,27 +14,13 @@
  * limitations under the License.
  */
 
-buildscript {
-    ext.kotlin_version = '1.3.41'
-    ext.navigation_version = '2.1.0-beta02'
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0-rc02'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
-    }
-}
+package com.example.android.motion.demo
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
+// Animation durations.
+// See https://material.io/design/motion/speed.html#duration for the detail.
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+const val MEDIUM_EXPAND_DURATION = 250L
+const val MEDIUM_COLLAPSE_DURATION = 200L
+
+const val LARGE_EXPAND_DURATION = 300L
+const val LARGE_COLLAPSE_DURATION = 250L

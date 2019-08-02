@@ -25,6 +25,7 @@ import android.view.ViewGroup
 import androidx.transition.Fade
 import androidx.transition.SidePropagation
 import androidx.transition.TransitionValues
+import com.example.android.motion.demo.LARGE_EXPAND_DURATION
 import com.example.android.motion.demo.LINEAR_OUT_SLOW_IN
 
 /**
@@ -35,7 +36,8 @@ import com.example.android.motion.demo.LINEAR_OUT_SLOW_IN
 class Stagger : Fade(IN) {
 
     init {
-        duration = 150L
+        // This duration is for a single item. See the comment below about propagation.
+        duration = LARGE_EXPAND_DURATION / 2
         interpolator = LINEAR_OUT_SLOW_IN
         propagation = SidePropagation().apply {
             setSide(Gravity.BOTTOM)

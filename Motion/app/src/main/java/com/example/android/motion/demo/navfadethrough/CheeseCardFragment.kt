@@ -37,6 +37,8 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.transition.Fade
 import com.example.android.motion.R
 import com.example.android.motion.demo.FAST_OUT_LINEAR_IN
+import com.example.android.motion.demo.LARGE_COLLAPSE_DURATION
+import com.example.android.motion.demo.LARGE_EXPAND_DURATION
 import com.example.android.motion.demo.LINEAR_OUT_SLOW_IN
 import com.example.android.motion.demo.sharedelement.MirrorView
 import com.google.android.material.appbar.AppBarLayout
@@ -49,12 +51,12 @@ class CheeseCardFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         exitTransition = Fade(Fade.OUT).apply {
-            duration = 150L
+            duration = LARGE_EXPAND_DURATION / 2
             interpolator = FAST_OUT_LINEAR_IN
         }
         reenterTransition = Fade(Fade.IN).apply {
-            duration = 150L
-            startDelay = 150L
+            duration = LARGE_COLLAPSE_DURATION / 2
+            startDelay = LARGE_COLLAPSE_DURATION / 2
             interpolator = LINEAR_OUT_SLOW_IN
         }
     }

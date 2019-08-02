@@ -26,6 +26,8 @@ import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.android.motion.R
+import com.example.android.motion.demo.MEDIUM_COLLAPSE_DURATION
+import com.example.android.motion.demo.MEDIUM_EXPAND_DURATION
 import com.example.android.motion.demo.fadeThrough
 import com.example.android.motion.ui.EdgeToEdge
 import com.google.android.material.button.MaterialButton
@@ -55,11 +57,23 @@ class FadeThroughActivity : AppCompatActivity() {
         val fadeThrough = fadeThrough()
 
         toggle.setOnClickListener {
-            // Delays the fade-through transition until the layout change below takes effect.
-            TransitionManager.beginDelayedTransition(card, fadeThrough)
             // We are only toggling the visibilities of the card contents here.
-            contact.isVisible = !contact.isVisible
-            cheese.isVisible = !cheese.isVisible
+            if (contact.isVisible) {
+                // Delays the fade-through transition until the layout change below takes effect.
+                TransitionManager.beginDelayedTransition(
+                    card,
+                    fadeThrough.setDuration(MEDIUM_EXPAND_DURATION)
+                )
+                contact.isVisible = false
+                cheese.isVisible = true
+            } else {
+                TransitionManager.beginDelayedTransition(
+                    card,
+                    fadeThrough.setDuration(MEDIUM_COLLAPSE_DURATION)
+                )
+                contact.isVisible = true
+                cheese.isVisible = false
+            }
         }
     }
 

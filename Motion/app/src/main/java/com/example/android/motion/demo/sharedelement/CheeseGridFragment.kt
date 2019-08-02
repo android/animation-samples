@@ -33,6 +33,8 @@ import androidx.transition.Explode
 import androidx.transition.Slide
 import com.example.android.motion.R
 import com.example.android.motion.demo.FAST_OUT_LINEAR_IN
+import com.example.android.motion.demo.LARGE_COLLAPSE_DURATION
+import com.example.android.motion.demo.LARGE_EXPAND_DURATION
 import com.example.android.motion.demo.LINEAR_OUT_SLOW_IN
 import com.example.android.motion.demo.plusAssign
 import com.example.android.motion.demo.transitionTogether
@@ -57,7 +59,7 @@ class CheeseGridFragment : Fragment() {
         // This is the transition to be used for non-shared elements when we are opening the detail
         // screen.
         exitTransition = transitionTogether {
-            duration = 150L
+            duration = LARGE_EXPAND_DURATION / 2
             interpolator = FAST_OUT_LINEAR_IN
             // The app bar.
             this += Slide(Gravity.TOP).apply {
@@ -74,7 +76,7 @@ class CheeseGridFragment : Fragment() {
         // This is the transition to be used for non-shared elements when we are return back from
         // the detail screen.
         reenterTransition = transitionTogether {
-            duration = 150L
+            duration = LARGE_COLLAPSE_DURATION / 2
             interpolator = LINEAR_OUT_SLOW_IN
             // The app bar.
             this += Slide(Gravity.TOP).apply {
@@ -84,7 +86,7 @@ class CheeseGridFragment : Fragment() {
             // The grid items.
             this += Explode().apply {
                 // The grid items should start imploding after the app bar is in.
-                startDelay = 150L
+                startDelay = LARGE_COLLAPSE_DURATION / 2
                 mode = Explode.MODE_IN
                 excludeTarget(R.id.app_bar, true)
             }

@@ -42,6 +42,8 @@ import androidx.transition.ChangeTransform
 import androidx.transition.Transition
 import com.example.android.motion.R
 import com.example.android.motion.demo.FAST_OUT_SLOW_IN
+import com.example.android.motion.demo.LARGE_COLLAPSE_DURATION
+import com.example.android.motion.demo.LARGE_EXPAND_DURATION
 import com.example.android.motion.demo.plusAssign
 import com.example.android.motion.demo.sharedelement.MirrorView
 import com.example.android.motion.demo.sharedelement.SharedFade
@@ -64,15 +66,17 @@ class CheeseArticleFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         // These are the shared element transitions.
-        sharedElementEnterTransition = createSharedElementTransition(R.id.article_mirror)
-        sharedElementReturnTransition = createSharedElementTransition(R.id.card_mirror)
+        sharedElementEnterTransition =
+            createSharedElementTransition(LARGE_EXPAND_DURATION, R.id.article_mirror)
+        sharedElementReturnTransition =
+            createSharedElementTransition(LARGE_COLLAPSE_DURATION, R.id.card_mirror)
 
         viewModel.cheeseId = args.cheeseId
     }
 
-    private fun createSharedElementTransition(@IdRes noTransform: Int): Transition {
+    private fun createSharedElementTransition(duration: Long, @IdRes noTransform: Int): Transition {
         return transitionTogether {
-            duration = 300L
+            this.duration = duration
             interpolator = FAST_OUT_SLOW_IN
             this += SharedFade()
             this += ChangeBounds()
