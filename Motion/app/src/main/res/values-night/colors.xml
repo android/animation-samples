@@ -15,10 +15,5 @@
   ~ limitations under the License.
 -->
 <resources>
-    <color name="primary">#008577</color>
-    <color name="primary_variant">#00574B</color>
-    <color name="secondary">#D81B60</color>
-    <color name="card_background">#e0e0e0</color>
-    <color name="dark_scrim">#66333333</color>
-    <color name="navigationBarColor">@color/dark_scrim</color>
+    <color name="card_background">#121212</color>
 </resources>

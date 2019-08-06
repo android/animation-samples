@@ -22,11 +22,15 @@ import android.content.Intent
 data class Demo(
     val packageName: String,
     val name: String,
-    val label: String
+    val label: String,
+    val description: String?,
+    val apis: List<String>
 ) {
 
     companion object {
         const val CATEGORY = "com.example.android.motion.intent.category.DEMO"
+        const val META_DATA_DESCRIPTION = "com.example.android.motion.demo.DESCRIPTION"
+        const val META_DATA_APIS = "com.example.android.motion.demo.APIS"
     }
 
     fun toIntent() = Intent(Intent.ACTION_MAIN)

@@ -29,7 +29,8 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".MainActivity">
+            android:name=".MainActivity"
+            android:theme="@style/Theme.Motion.CardUi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -43,6 +44,13 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.example.android.motion.intent.category.DEMO" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.example.android.motion.demo.DESCRIPTION"
+                android:value="@string/dissolve_description" />
+            <meta-data
+                android:name="com.example.android.motion.demo.APIS"
+                android:resource="@array/dissolve_apis" />
         </activity>
 
         <activity
@@ -52,6 +60,13 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.example.android.motion.intent.category.DEMO" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.example.android.motion.demo.DESCRIPTION"
+                android:value="@string/fade_through_description" />
+            <meta-data
+                android:name="com.example.android.motion.demo.APIS"
+                android:resource="@array/fade_through_apis" />
         </activity>
 
         <activity
@@ -61,6 +76,13 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.example.android.motion.intent.category.DEMO" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.example.android.motion.demo.DESCRIPTION"
+                android:value="@string/reorder_description" />
+            <meta-data
+                android:name="com.example.android.motion.demo.APIS"
+                android:resource="@array/reorder_apis" />
         </activity>
 
         <activity
@@ -70,6 +92,13 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.example.android.motion.intent.category.DEMO" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.example.android.motion.demo.DESCRIPTION"
+                android:value="@string/stagger_description" />
+            <meta-data
+                android:name="com.example.android.motion.demo.APIS"
+                android:resource="@array/stagger_apis" />
         </activity>
 
         <activity
@@ -80,6 +109,13 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.example.android.motion.intent.category.DEMO" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.example.android.motion.demo.DESCRIPTION"
+                android:value="@string/shared_element_description" />
+            <meta-data
+                android:name="com.example.android.motion.demo.APIS"
+                android:resource="@array/shared_element_apis" />
         </activity>
 
         <activity
@@ -90,6 +126,13 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.example.android.motion.intent.category.DEMO" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.example.android.motion.demo.DESCRIPTION"
+                android:value="@string/nav_fade_through_description" />
+            <meta-data
+                android:name="com.example.android.motion.demo.APIS"
+                android:resource="@array/nav_fade_through_apis" />
         </activity>
 
     </application>

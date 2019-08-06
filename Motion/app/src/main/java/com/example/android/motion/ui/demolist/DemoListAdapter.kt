@@ -20,6 +20,7 @@ package com.example.android.motion.ui.demolist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -62,8 +63,28 @@ internal class DemoViewHolder(
 ) {
 
     private val label: TextView = itemView.findViewById(R.id.label)
+    private val description: TextView = itemView.findViewById(R.id.description)
+    private val apis: List<TextView> = listOf(
+        itemView.findViewById(R.id.api_1),
+        itemView.findViewById(R.id.api_2),
+        itemView.findViewById(R.id.api_3),
+        itemView.findViewById(R.id.api_4),
+        itemView.findViewById(R.id.api_5)
+    )
 
     fun bind(demo: Demo) {
         label.text = demo.label
+        description.text = demo.description
+        description.isVisible = demo.description != null
+        for (i in 0 until apis.size) {
+            if (demo.apis.size > i) {
+                apis[i].run {
+                    text = demo.apis[i]
+                    isVisible = true
+                }
+            } else {
+                apis[i].isVisible = false
+            }
+        }
     }
 }

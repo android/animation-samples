@@ -14,11 +14,14 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<resources>
-    <color name="primary">#008577</color>
-    <color name="primary_variant">#00574B</color>
-    <color name="secondary">#D81B60</color>
-    <color name="card_background">#e0e0e0</color>
-    <color name="dark_scrim">#66333333</color>
-    <color name="navigationBarColor">@color/dark_scrim</color>
-</resources>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners
+        android:radius="@dimen/spacing_small" />
+    <solid
+        android:color="@color/primary" />
+    <padding
+        android:left="@dimen/spacing_small"
+        android:right="@dimen/spacing_small" />
+</shape>

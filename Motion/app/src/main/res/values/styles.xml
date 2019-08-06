@@ -26,6 +26,10 @@
         <item name="colorSecondary">@color/secondary</item>
     </style>
 
+    <style name="Theme.Motion.CardUi">
+        <item name="android:windowBackground">@color/card_background</item>
+    </style>
+
     <style name="Theme.Motion.Translucent">
         <item name="android:statusBarColor" tools:ignore="NewApi">@color/dark_scrim</item>
     </style>
@@ -34,6 +38,12 @@
         <item name="android:padding">4dp</item>
         <item name="android:scaleType">fitXY</item>
         <item name="android:tint">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Widget.Motion.TextView.Api" parent="Widget.MaterialComponents.TextView">
+        <item name="android:background">@drawable/api_background</item>
+        <item name="android:textAppearance">?attr/textAppearanceListItemSecondary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
 </resources>

@@ -18,6 +18,8 @@ package com.example.android.motion.ui.demolist
 
 import android.app.Application
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Bundle
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -32,14 +34,19 @@ class DemoListViewModel(application: Application) : AndroidViewModel(application
         val packageManager = getApplication<Application>().packageManager
         val resolveInfoList = packageManager.queryIntentActivities(
             Intent(Intent.ACTION_MAIN).addCategory(Demo.CATEGORY),
-            0
+            PackageManager.GET_META_DATA
         )
+        val resources = application.resources
         _demos.value = resolveInfoList.map { resolveInfo ->
             val activityInfo = resolveInfo.activityInfo
+            val metaData = activityInfo.metaData
+            val apisId = metaData?.getInt(Demo.META_DATA_APIS, 0) ?: 0
             Demo(
                 activityInfo.applicationInfo.packageName,
                 activityInfo.name,
-                activityInfo.loadLabel(packageManager).toString()
+                activityInfo.loadLabel(packageManager).toString(),
+                metaData?.getString(Demo.META_DATA_DESCRIPTION),
+                if (apisId == 0) emptyList() else resources.getStringArray(apisId).toList()
             )
         }
     }
