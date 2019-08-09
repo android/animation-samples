@@ -48,6 +48,7 @@
     <string-array name="reorder_apis">
         <item>ItemTouchHelper</item>
         <item>ItemAnimator</item>
+        <item>ViewPropertyAnimator</item>
     </string-array>
 
     <!-- Stagger -->

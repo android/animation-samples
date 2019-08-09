@@ -20,7 +20,7 @@ apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion 29
-    buildToolsVersion '29.0.1' // TODO: Remove when AGP 3.5 is stable.
+    buildToolsVersion '29.0.2' // TODO: Remove when AGP 3.5 is stable.
 
     defaultConfig {
         applicationId 'com.example.android.motion'
@@ -52,20 +52,20 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    implementation 'androidx.core:core-ktx:1.2.0-alpha02'
-    implementation 'androidx.fragment:fragment-ktx:1.2.0-alpha01'
+    implementation 'androidx.core:core-ktx:1.2.0-alpha03'
+    implementation 'androidx.fragment:fragment-ktx:1.2.0-alpha02'
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     implementation 'androidx.transition:transition:1.2.0-beta01'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta02'
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
 
-    def lifecycle_version = '2.2.0-alpha02'
+    def lifecycle_version = '2.2.0-alpha03'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
-    implementation 'com.google.android.material:material:1.1.0-alpha08'
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
 
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
