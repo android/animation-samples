@@ -26,6 +26,9 @@
     <string name="toggle">Toggle</string>
     <string name="detail">Detail</string>
     <string name="order">Order</string>
+    <string name="add">Add</string>
+    <string name="tap_fab">Tap on the floating action button to expand it.</string>
+    <string name="you_selected">You selected %s.</string>
     <string name="drag_hint">%s clicked. Long press to start dragging.</string>
     <string name="refresh">Refresh</string>
 </resources>

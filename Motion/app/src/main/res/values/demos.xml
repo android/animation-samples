@@ -40,6 +40,17 @@
         <item>Transition</item>
     </string-array>
 
+    <!-- FAB transformation -->
+    <string name="fab_transformation_label">Layout > FAB transformation</string>
+    <string name="fab_transformation_description">
+        A floating action button (FAB) can transform into a card by tweening FAB size and corner
+        radius.
+    </string>
+    <string-array name="fab_transformation_apis">
+        <item>FabTransformationSheetBehavior</item>
+        <item>CircularRevealCardView</item>
+    </string-array>
+
     <!-- Reorder -->
     <string name="reorder_label">List > Reorder</string>
     <string name="reorder_description">
