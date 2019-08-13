@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2019 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:elevation="1dp"
+    tools:targetApi="21">
+
+    <com.example.android.motion.demo.sharedelement.MirrorView
+        android:id="@+id/card_mirror"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+            app:liftOnScroll="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/app_bar_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="256dp"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    app:layout_scrollFlags="scroll"
+                    tools:src="@drawable/cheese_1" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@drawable/gradient_dim_top"
+                    app:layout_collapseMode="pin"
+                    app:menu="@menu/cheese_detail"
+                    app:navigationIcon="@drawable/ic_arrow_back" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:textAppearance="?attr/textAppearanceHeadline4"
+                    tools:text="Cheese" />
+
+                <TextView
+                    android:id="@+id/description_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:text="@string/lorem_ipsum"
+                    android:textAppearance="?attr/textAppearanceBody1" />
+
+                <TextView
+                    android:id="@+id/description_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:text="@string/lorem_ipsum"
+                    android:textAppearance="?attr/textAppearanceBody1" />
+
+                <TextView
+                    android:id="@+id/description_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:text="@string/lorem_ipsum"
+                    android:textAppearance="?attr/textAppearanceBody1" />
+
+                <TextView
+                    android:id="@+id/description_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:text="@string/lorem_ipsum"
+                    android:textAppearance="?attr/textAppearanceBody1" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</FrameLayout>
