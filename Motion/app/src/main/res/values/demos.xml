@@ -51,6 +51,16 @@
         <item>CircularRevealCardView</item>
     </string-array>
 
+    <!-- Bottom Sheet -->
+    <string name="bottom_sheet_label">Layout > Bottom sheet</string>
+    <string name="bottom_sheet_description">
+        Bottom sheets are anchored to the bottom edge of the screen and appear in front of other UI
+        elements.
+    </string>
+    <string-array name="bottom_sheet_apis">
+        <item>BottomSheetBehavior</item>
+    </string-array>
+
     <!-- Reorder -->
     <string name="reorder_label">List > Reorder</string>
     <string name="reorder_description">

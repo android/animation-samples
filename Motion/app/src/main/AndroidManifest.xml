@@ -86,6 +86,23 @@
         </activity>
 
         <activity
+            android:name=".demo.bottomsheet.BottomSheetActivity"
+            android:label="@string/bottom_sheet_label"
+            android:theme="@style/Theme.Motion.CardUi">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.example.android.motion.intent.category.DEMO" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.example.android.motion.demo.DESCRIPTION"
+                android:value="@string/bottom_sheet_description" />
+            <meta-data
+                android:name="com.example.android.motion.demo.APIS"
+                android:resource="@array/bottom_sheet_apis" />
+        </activity>
+
+        <activity
             android:name=".demo.reorder.ReorderActivity"
             android:label="@string/reorder_label">
             <intent-filter>
