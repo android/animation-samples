@@ -21,6 +21,7 @@ package.
 
 - [Layout > Dissolve](app/src/main/java/com/example/android/motion/demo/dissolve)
 - [Layout > Fade through](app/src/main/java/com/example/android/motion/demo/fadethrough)
+- [Layout > FAB transformation](app/src/main/java/com/example/android/motion/demo/fabtransformation)
 - [List > Reorder](app/src/main/java/com/example/android/motion/demo/reorder)
 - [List > Stagger](app/src/main/java/com/example/android/motion/demo/stagger)
 - [Navigation > Shared element](app/src/main/java/com/example/android/motion/demo/sharedelement)

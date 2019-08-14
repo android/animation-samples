@@ -15,10 +15,5 @@
   ~ limitations under the License.
 -->
 <resources>
-    <dimen name="spacing_medium">16dp</dimen>
-    <dimen name="spacing_small">8dp</dimen>
-    <dimen name="spacing_tiny">4dp</dimen>
-    <dimen name="pick_up_elevation">8dp</dimen>
-    <dimen name="fab_elevation">6dp</dimen>
-    <dimen name="icon_size">24dp</dimen>
+    <item name="tag_name" type="id" />
 </resources>

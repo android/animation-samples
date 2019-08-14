@@ -24,6 +24,7 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_variant</item>
         <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@android:color/white</item>
     </style>
 
     <style name="Theme.Motion.CardUi">
