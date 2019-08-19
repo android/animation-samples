@@ -21,6 +21,7 @@ import android.view.ViewGroup
 import android.widget.EdgeEffect
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.doOnLayout
 import androidx.core.view.doOnNextLayout
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
@@ -112,16 +113,17 @@ internal class CheeseAdapter : ListAdapter<Cheese, CheeseViewHolder>(Cheese.DIFF
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheeseViewHolder {
-        return CheeseViewHolder(parent)
+        return CheeseViewHolder(parent).apply {
+            // The rotation pivot should be at the center of the top edge.
+            itemView.doOnLayout { v -> v.pivotX = v.width / 2f }
+            itemView.pivotY = 0f
+        }
     }
 
     override fun onBindViewHolder(holder: CheeseViewHolder, position: Int) {
         val cheese = getItem(position)
         Glide.with(holder.image).load(cheese.image).into(holder.image)
         holder.name.text = cheese.name
-        // The rotation pivot should be at the center of the top edge.
-        holder.itemView.doOnNextLayout { v -> v.pivotX = v.width / 2f }
-        holder.itemView.pivotY = 0f
     }
 }
 
