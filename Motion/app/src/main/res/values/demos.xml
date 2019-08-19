@@ -74,6 +74,18 @@
         <item>SidePropagation</item>
     </string-array>
 
+    <!-- Oscillation -->
+    <string name="oscillation_label">List > Oscillation</string>
+    <string name="oscillation_description">
+        Oscillation occurs when an animation uses more than one overshoot. Each additional back and
+        forth movement is smaller than the previous one, until the motion stops. Oscillation may be
+        used to create a cartoon style.
+    </string>
+    <string-array name="oscillation_apis">
+        <item>SpringAnimation</item>
+        <item>EdgeEffect</item>
+    </string-array>
+
     <!-- Shared Element -->
     <string name="shared_element_label">Navigation > Shared element</string>
     <string name="shared_element_description">

@@ -24,5 +24,6 @@ package.
 - [Layout > FAB transformation](app/src/main/java/com/example/android/motion/demo/fabtransformation)
 - [List > Reorder](app/src/main/java/com/example/android/motion/demo/reorder)
 - [List > Stagger](app/src/main/java/com/example/android/motion/demo/stagger)
+- [List > Oscillation](app/src/main/java/com/example/android/motion/demo/oscillation)
 - [Navigation > Shared element](app/src/main/java/com/example/android/motion/demo/sharedelement)
 - [Navigation > Fade through](app/src/main/java/com/example/android/motion/demo/navfadethrough)
