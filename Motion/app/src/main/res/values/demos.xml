@@ -74,6 +74,17 @@
         <item>SidePropagation</item>
     </string-array>
 
+    <!-- Loading -->
+    <string name="loading_label">List > Loading</string>
+    <string name="loading_description">
+        Motion provides timely feedback and the status of user actions. An animated placeholder UI
+        can indicate that content is loading.
+    </string>
+    <string-array name="loading_apis">
+        <item>ObjectAnimator</item>
+        <item>PagedList</item>
+    </string-array>
+
     <!-- Oscillation -->
     <string name="oscillation_label">List > Oscillation</string>
     <string name="oscillation_description">
