@@ -19,7 +19,7 @@
 ---
 status:       PUBLISHED
 technologies: [Android]
-categories:   [Design, Transitions, Input]
+categories:   [Animation]
 languages:    [Java]
 solutions:    [Mobile]
 github:       android/animation
