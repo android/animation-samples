@@ -16,12 +16,13 @@
 package com.example.android.unsplash.ui.pager;
 
 import android.app.Activity;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.example.android.unsplash.R;
@@ -59,7 +60,7 @@ public class DetailViewPagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
         DetailViewBinding binding =
                 DataBindingUtil.inflate(layoutInflater, R.layout.detail_view, container, false);
         binding.setData(allPhotos.get(position));
@@ -78,20 +79,20 @@ public class DetailViewPagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public void setPrimaryItem(ViewGroup container, int position, Object object) {
+    public void setPrimaryItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         if (object instanceof DetailViewBinding) {
             sharedElementCallback.setBinding((DetailViewBinding) object);
         }
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return object instanceof DetailViewBinding
                 && view.equals(((DetailViewBinding) object).getRoot());
     }
 
     @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
+    public void destroyItem(ViewGroup container, int position, @NonNull Object object) {
         container.removeView(((DetailViewBinding) object).getRoot());
     }
 }

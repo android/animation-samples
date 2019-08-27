@@ -21,15 +21,16 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.transition.Transition;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ProgressBar;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.unsplash.data.UnsplashService;
 import com.example.android.unsplash.data.model.Photo;

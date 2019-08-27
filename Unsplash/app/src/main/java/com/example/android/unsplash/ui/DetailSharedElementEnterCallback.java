@@ -20,11 +20,12 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.example.android.unsplash.IntentUtil;
 import com.example.android.unsplash.databinding.DetailViewBinding;
