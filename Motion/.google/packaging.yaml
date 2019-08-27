@@ -26,6 +26,8 @@ github:       android/animation
 level:        INTERMEDIATE
 icon:         screenshots/icon-web.png
 apiRefs:
-    - android:android.transition.Transition
-    - android:android.app.ActivityOptions
+    - androidx.transition:androidx.transition.Transition
+    - androidx.dynamicanimation:androidx.dynamicanimation.animation.SpringAnimation
+    - android:android.animation.ObjectAnimator
+    - android:android.view.ViewPropertyAnimator
 license: apache2
