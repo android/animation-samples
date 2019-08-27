@@ -28,6 +28,6 @@ github:       android/animation
 level:        INTERMEDIATE
 
 apiRefs:
-    - androidx.recyclerview:androidx.recyclerview.widget.RecyclerView
+    - android:androidx.recyclerview.widget.RecyclerView
 
 license: apache2
