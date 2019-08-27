@@ -17,11 +17,11 @@
 package com.google.samples.apps.ourstreets.view;
 
 import android.graphics.Rect;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 /**
- * Divider for items within the Gallery {@link android.support.v7.widget.RecyclerView}.
+ * Divider for items within the Gallery {@link RecyclerView}.
  */
 public class GalleryDivider extends RecyclerView.ItemDecoration {
 

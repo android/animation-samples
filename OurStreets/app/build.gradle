@@ -17,13 +17,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
 
     defaultConfig {
         applicationId "com.google.samples.apps.ourstreets"
         minSdkVersion 21
-        targetSdkVersion 24
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -48,22 +48,21 @@ android {
 }
 
 ext {
-    appCompatVersion = "24.0.0"
     firebaseVersion = "2.3.1"
-    mapsVersion = "9.4.0"
+    mapsVersion = "17.0.0"
     mapsUtilsVersion = "0.4"
     hamcrestVersion = "1.3"
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:${appCompatVersion}"
-    compile "com.android.support:cardview-v7:${appCompatVersion}"
-    compile "com.android.support:design:${appCompatVersion}"
-    compile "com.android.support:recyclerview-v7:${appCompatVersion}"
-    compile "com.firebase:firebase-client-android:${firebaseVersion}"
-    compile "com.google.android.gms:play-services-maps:${mapsVersion}"
-    compile "com.google.maps.android:android-maps-utils:${mapsUtilsVersion}"
-    testCompile 'junit:junit:4.12'
-    testCompile "org.hamcrest:hamcrest-core:${hamcrestVersion}"
-    testCompile "org.hamcrest:hamcrest-library:${hamcrestVersion}"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation "com.firebase:firebase-client-android:${firebaseVersion}"
+    implementation "com.google.android.gms:play-services-maps:${mapsVersion}"
+    implementation "com.google.maps.android:android-maps-utils:${mapsUtilsVersion}"
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.hamcrest:hamcrest-core:${hamcrestVersion}"
+    testImplementation "org.hamcrest:hamcrest-library:${hamcrestVersion}"
 }
