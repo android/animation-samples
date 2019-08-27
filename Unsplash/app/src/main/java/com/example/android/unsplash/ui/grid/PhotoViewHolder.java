@@ -16,7 +16,7 @@
 
 package com.example.android.unsplash.ui.grid;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.unsplash.databinding.PhotoItemBinding;
 

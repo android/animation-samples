@@ -16,7 +16,7 @@
 
 package com.google.samples.apps.ourstreets.data;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.maps.model.LatLng;
 
