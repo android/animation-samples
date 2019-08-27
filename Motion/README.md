@@ -3,8 +3,6 @@ Android Motion Sample
 
 A collection of demos for Material Design Motion.
 
-<img src="screenshots/main.png" height="400" alt="Screenshot"/>
-
 [Material Design](https://material.io) provides a lot of examples about motion design. This sample
 shows how to implement them on Android.
 
@@ -27,3 +25,8 @@ package.
 - [List > Oscillation](app/src/main/java/com/example/android/motion/demo/oscillation)
 - [Navigation > Shared element](app/src/main/java/com/example/android/motion/demo/sharedelement)
 - [Navigation > Fade through](app/src/main/java/com/example/android/motion/demo/navfadethrough)
+
+Screenshots
+-----------
+
+<img src="screenshots/main.png" height="400" alt="Screenshot"/>
