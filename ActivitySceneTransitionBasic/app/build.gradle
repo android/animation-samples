@@ -14,20 +14,26 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId 'com.example.android.activityscenetransitionbasic'
+        minSdkVersion 14
+        targetSdkVersion 29
+        versionCode 1
+        versionName '1.0'
     }
 
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.squareup.picasso:picasso:2.4.0'
 }
