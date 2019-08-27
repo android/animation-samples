@@ -16,7 +16,7 @@
 
 package com.google.samples.apps.ourstreets.model;
 
-import android.test.suitebuilder.annotation.SmallTest;
+import androidx.test.filters.SmallTest;
 
 import com.google.android.gms.maps.model.LatLng;
 

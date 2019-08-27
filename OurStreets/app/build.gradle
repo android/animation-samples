@@ -38,6 +38,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "google_maps_key", "\"${maps_api_key}\""
         }
     }
     packagingOptions {
@@ -62,6 +63,8 @@ dependencies {
     implementation "com.firebase:firebase-client-android:${firebaseVersion}"
     implementation "com.google.android.gms:play-services-maps:${mapsVersion}"
     implementation "com.google.maps.android:android-maps-utils:${mapsUtilsVersion}"
+
+    testImplementation "androidx.test:runner:1.2.0"
     testImplementation 'junit:junit:4.12'
     testImplementation "org.hamcrest:hamcrest-core:${hamcrestVersion}"
     testImplementation "org.hamcrest:hamcrest-library:${hamcrestVersion}"
