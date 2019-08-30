@@ -20,7 +20,6 @@ apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion 29
-    buildToolsVersion '29.0.2' // TODO: Remove when AGP 3.5 is stable.
 
     defaultConfig {
         applicationId 'com.example.android.motion'
