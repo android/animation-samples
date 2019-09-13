@@ -18,15 +18,25 @@ All the source codes for demos are in the [demo](app/src/main/java/com/example/a
 package.
 
 - [Layout > Dissolve](app/src/main/java/com/example/android/motion/demo/dissolve)
+<img src="screenshots/dissolve.gif" height="400" alt="dissolve"/>
+
 - [Layout > Fade through](app/src/main/java/com/example/android/motion/demo/fadethrough)
+<img src="screenshots/fadethrough.gif" height="400" alt="fadethrough"/>
+
 - [Layout > FAB transformation](app/src/main/java/com/example/android/motion/demo/fabtransformation)
+<img src="screenshots/fabtransformation.gif" height="400" alt="fab"/>
+
 - [List > Reorder](app/src/main/java/com/example/android/motion/demo/reorder)
+<img src="screenshots/reordering.gif" height="400" alt="reorder"/>
+
 - [List > Stagger](app/src/main/java/com/example/android/motion/demo/stagger)
+<img src="screenshots/stagger.gif" height="400" alt="stagger"/>
+
 - [List > Oscillation](app/src/main/java/com/example/android/motion/demo/oscillation)
+<img src="screenshots/oscillation.gif" height="400" alt="oscillation"/>
+
 - [Navigation > Shared element](app/src/main/java/com/example/android/motion/demo/sharedelement)
+<img src="screenshots/sharedelement.gif" height="400" alt="sharedelement"/>
+
 - [Navigation > Fade through](app/src/main/java/com/example/android/motion/demo/navfadethrough)
-
-Screenshots
------------
-
-<img src="screenshots/main.png" height="400" alt="Screenshot"/>
+<img src="screenshots/navigationfadethrough.gif" height="400" alt="navfadethrough"/>
