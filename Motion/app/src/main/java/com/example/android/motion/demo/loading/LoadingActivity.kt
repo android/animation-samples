@@ -25,9 +25,13 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Fade
+import androidx.transition.Transition
+import androidx.transition.TransitionListenerAdapter
 import androidx.transition.TransitionManager
 import com.example.android.motion.R
 import com.example.android.motion.demo.FAST_OUT_SLOW_IN
+import com.example.android.motion.demo.LARGE_EXPAND_DURATION
+import com.example.android.motion.demo.plusAssign
 import com.example.android.motion.demo.transitionSequential
 import com.example.android.motion.ui.EdgeToEdge
 
@@ -40,14 +44,23 @@ class LoadingActivity : AppCompatActivity() {
 
     private lateinit var list: RecyclerView
     private val fade = transitionSequential {
-        duration = 300L
+        duration = LARGE_EXPAND_DURATION
         interpolator = FAST_OUT_SLOW_IN
-        addTransition(Fade(Fade.OUT))
-        addTransition(Fade(Fade.IN))
+        this += Fade(Fade.OUT)
+        this += Fade(Fade.IN)
+        addListener(object : TransitionListenerAdapter() {
+            override fun onTransitionEnd(transition: Transition) {
+                if (savedItemAnimator != null) {
+                    list.itemAnimator = savedItemAnimator
+                }
+            }
+        })
     }
 
     private val placeholderAdapter = PlaceholderAdapter()
     private val cheeseAdapter = CheeseAdapter()
+
+    private var savedItemAnimator: RecyclerView.ItemAnimator? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +79,8 @@ class LoadingActivity : AppCompatActivity() {
         viewModel.cheeses.observe(this) { cheeses ->
             if (list.adapter != cheeseAdapter) {
                 list.adapter = cheeseAdapter
+                savedItemAnimator = list.itemAnimator
+                list.itemAnimator = null
                 TransitionManager.beginDelayedTransition(list, fade)
             }
             cheeseAdapter.submitList(cheeses)
