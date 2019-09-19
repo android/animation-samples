@@ -118,6 +118,22 @@
         </activity>
 
         <activity
+            android:name=".demo.loading.LoadingActivity"
+            android:label="@string/loading_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.example.android.motion.intent.category.DEMO" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.example.android.motion.demo.DESCRIPTION"
+                android:value="@string/loading_description" />
+            <meta-data
+                android:name="com.example.android.motion.demo.APIS"
+                android:resource="@array/loading_apis" />
+        </activity>
+
+        <activity
             android:name=".demo.oscillation.OscillationActivity"
             android:label="@string/oscillation_label"
             android:theme="@style/Theme.Motion.CardUi">

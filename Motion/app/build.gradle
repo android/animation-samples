@@ -56,7 +56,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     implementation 'androidx.transition:transition:1.2.0-beta01'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha02'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta02'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta03'
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
 
@@ -64,6 +64,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    def paging_version = '2.1.0'
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
     implementation 'com.google.android.material:material:1.1.0-alpha09'
 
