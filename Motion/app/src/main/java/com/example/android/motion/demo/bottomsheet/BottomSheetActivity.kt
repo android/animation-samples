@@ -129,7 +129,7 @@ class BottomSheetActivity : AppCompatActivity() {
 
         // Monitor movement of the bottom sheet and change the appearance of its content.
         val evaluator = ArgbEvaluatorCompat()
-        behavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+        behavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
                 // This is called every frame while the bottom sheet is moving. We can simply
                 // modify the view properties without using any Animation API.

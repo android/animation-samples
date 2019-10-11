@@ -107,7 +107,7 @@
                     app:drawableTopCompat="@drawable/ic_favorite" />
 
                 <TextView
-                    android:id="@+id/bookmar"
+                    android:id="@+id/bookmark"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
