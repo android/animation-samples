@@ -86,6 +86,7 @@ public class ImagePagerFragment extends Fragment {
             Fragment currentFragment = (Fragment) viewPager.getAdapter()
                 .instantiateItem(viewPager, MainActivity.currentPosition);
             View view = currentFragment.getView();
+            System.out.println("view: " + view);
             if (view == null) {
               return;
             }

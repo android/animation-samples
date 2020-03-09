@@ -105,7 +105,7 @@ public class GridFragment extends Fragment {
             // Locate the ViewHolder for the clicked position.
             RecyclerView.ViewHolder selectedViewHolder = recyclerView
                 .findViewHolderForAdapterPosition(MainActivity.currentPosition);
-            if (selectedViewHolder == null || selectedViewHolder.itemView == null) {
+            if (selectedViewHolder == null) {
               return;
             }
 
