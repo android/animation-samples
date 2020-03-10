@@ -17,6 +17,7 @@ package com.google.samples.gridtopager;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.samples.gridtopager.fragment.GridFragment;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   @Override
-  protected void onSaveInstanceState(Bundle outState) {
+  protected void onSaveInstanceState(@NonNull Bundle outState) {
     super.onSaveInstanceState(outState);
     outState.putInt(KEY_CURRENT_POSITION, currentPosition);
   }

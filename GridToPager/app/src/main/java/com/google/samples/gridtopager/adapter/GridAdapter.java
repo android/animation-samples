@@ -19,6 +19,8 @@ package com.google.samples.gridtopager.adapter;
 import static com.google.samples.gridtopager.adapter.ImageData.IMAGE_DRAWABLES;
 
 import android.graphics.drawable.Drawable;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +39,7 @@ import com.google.samples.gridtopager.MainActivity;
 import com.google.samples.gridtopager.R;
 import com.google.samples.gridtopager.adapter.GridAdapter.ImageViewHolder;
 import com.google.samples.gridtopager.fragment.ImagePagerFragment;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -65,6 +68,7 @@ public class GridAdapter extends RecyclerView.Adapter<ImageViewHolder> {
     this.viewHolderListener = new ViewHolderListenerImpl(fragment);
   }
 
+  @NonNull
   @Override
   public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View view = LayoutInflater.from(parent.getContext())
