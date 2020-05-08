@@ -73,12 +73,12 @@ class SeekableFragment : Fragment(R.layout.seekable_fragment) {
         }
         binding.stop.setOnClickListener { icon.stop() }
         binding.seek.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
                     // With SeekableAnimatedVectorDrawable#setCurrentPlayTime, you can set the
                     // position of animation to the specific time in its duration.
                     icon.currentPlayTime = (icon.totalDuration *
-                            (progress.toFloat() / binding.seek.max.toFloat())).toLong()
+                            (progress.toFloat() / seekBar.max.toFloat())).toLong()
                 }
             }
 

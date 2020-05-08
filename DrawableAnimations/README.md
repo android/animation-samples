@@ -10,6 +10,8 @@ A collection of demos for drawable animation APIs.
 
 ### AnimatedVectorDrawableCompat
 
+![AnimatedVectorDrawableCompat](screenshots/animated.gif)
+
 [AnimatedVectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/AnimatedVectorDrawableCompat)
 is backport of
 [AnimatedVectorDrawable](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable)
@@ -26,6 +28,8 @@ AnimatedVectorDrawableCompat for older APIs. If you don't need to pause/resume
 or seek, this should be sufficient.
 
 ### SeekableAnimatedVectorDrawable
+
+![SeekableAnimatedVectorDrawable](screenshots/seekable.gif)
 
 [SeekableAnimatedVectorDrawable](https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/SeekableAnimatedVectorDrawable)
 is an alternative to AnimatedVectorDrawableCompat that supports the same XML
