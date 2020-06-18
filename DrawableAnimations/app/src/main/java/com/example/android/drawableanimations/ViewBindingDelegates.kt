@@ -27,7 +27,7 @@ import androidx.viewbinding.ViewBinding
  * [Fragment.onViewCreated].
  *
  * ```
- *     private val binding by dataBindings(HomeFragmentBinding::bind)
+ *     private val binding by viewBindings(HomeFragmentBinding::bind)
  *
  *     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
  *         binding.someView.someField = ...
