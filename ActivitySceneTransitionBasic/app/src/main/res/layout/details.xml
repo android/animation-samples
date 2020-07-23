@@ -25,6 +25,7 @@
         android:orientation="vertical">
 
         <com.example.android.activityscenetransitionbasic.SquareFrameLayout
+            android:id="@+id/sfl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

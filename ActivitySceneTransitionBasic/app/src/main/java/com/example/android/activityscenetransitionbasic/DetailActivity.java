@@ -16,9 +16,14 @@
 
 package com.example.android.activityscenetransitionbasic;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.transition.Transition;
+import android.util.Log;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +39,7 @@ import com.squareup.picasso.Picasso;
  */
 public class DetailActivity extends AppCompatActivity {
 
+    private static final String TAG = "DetailActivity";
     // Extra name for the ID parameter
     public static final String EXTRA_PARAM_ID = "detail:_id";
 
@@ -51,6 +57,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG, "onCreate: ");
         setContentView(R.layout.details);
 
         // Retrieve the correct Item instance, using the ID provided in the Intent
@@ -70,6 +77,19 @@ public class DetailActivity extends AppCompatActivity {
         // END_INCLUDE(detail_set_view_name)
 
         loadItem();
+        Log.i(TAG, "onCreate: ");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart: ");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume: ");
     }
 
     private void loadItem() {
@@ -124,16 +144,83 @@ public class DetailActivity extends AppCompatActivity {
             transition.addListener(new Transition.TransitionListener() {
                 @Override
                 public void onTransitionEnd(Transition transition) {
+                    Log.i(TAG, "onTransitionEnd: ");
                     // As the transition has ended, we can now load the full-size image
                     loadFullSizeImage();
 
                     // Make sure we remove ourselves as a listener
                     transition.removeListener(this);
+                    Intent intent = getIntent();
+                    int x = intent.getIntExtra("location_x", 0);
+                    int y = intent.getIntExtra("location_y", 0);
+                    int w = intent.getIntExtra("width", 0);
+                    int h = intent.getIntExtra("height", 0);
+                    int[] array = new int[2];
+                    mHeaderImageView.getLocationOnScreen(array);
+                    int width =  mHeaderImageView.getRight() - mHeaderImageView.getLeft();
+                    int height = mHeaderImageView.getBottom() - mHeaderImageView.getTop();
+                    int ix = array[0];
+                    int iy = array[1];
+                    Log.i(TAG, "onTransitionEnd: 从 [(" + x + "," + y + ") (w " + w + ",h " + h
+                            +")]  移动到 [(" + array[0] + "," + array[1] + ") (w " + width + ",h " + height +")]");
+                    View view = getWindow().getDecorView();
+                    view.getLocationOnScreen(array);
+                    if(view instanceof FrameLayout) {
+                        Log.i(TAG, "onTransitionStart: " + (view instanceof FrameLayout) + " x:" + array[0] + ",y" + array[1]);
+                        ImageView iv = new ImageView(DetailActivity.this);
+                        iv.setBackgroundColor(Color.RED);
+                        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(width, height);
+                        params.leftMargin = ix - array[0];
+                        params.topMargin = iy - array[1];
+                        iv.setLayoutParams(params);
+//                        ((FrameLayout) view).addView(iv);
+                    }
                 }
 
                 @Override
                 public void onTransitionStart(Transition transition) {
                     // No-op
+                    Log.i(TAG, "onTransitionStart: ");
+
+                    Intent intent = getIntent();
+                    int x = intent.getIntExtra("location_x", 0);
+                    int y = intent.getIntExtra("location_y", 0);
+                    int w = intent.getIntExtra("width", 0);
+                    int h = intent.getIntExtra("height", 0);
+                    int[] array = new int[2];
+                    mHeaderImageView.getLocationOnScreen(array);
+                    int width =  mHeaderImageView.getRight() - mHeaderImageView.getLeft();
+                    int height = mHeaderImageView.getBottom() - mHeaderImageView.getTop();
+                    Log.i(TAG, "onTransitionStart: 从 [(" + x + "," + y + ") (w " + w + ",h " + h
+                            +")]  移动到 [(" + array[0] + "," + array[1] + ") (w " + width + ",h " + height +")]");
+                    //TODO 拿到上个页面传过来的位置坐标，然后 addView() 然后执行动画效果
+                    View view = getWindow().getDecorView();
+                    view.getLocationOnScreen(array);
+                    if(view instanceof FrameLayout) {
+                        View sfl = findViewById(R.id.sfl);
+                        Log.i(TAG, "onTransitionStart: " + (view instanceof FrameLayout) + " x:" + array[0] + ",y" + array[1]);
+                        ImageView iv = new ImageView(DetailActivity.this);
+                        iv.setBackgroundColor(Color.RED);
+                        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(width, height);
+                        params.leftMargin = x - array[0];
+                        params.topMargin = y - array[1];
+                        iv.setLayoutParams(params);
+                        ((FrameLayout) view).addView(iv);
+                        sfl.getLocationOnScreen(array);
+                        Log.i(TAG, "onTransitionStart: sfl =>> x:" + array[0] + ",y" + array[1]);
+                        float scaleX = 1440f / w;
+                        float scaleY = 1440f / h;
+                        float afterW = w * scaleX;
+                        float afterH = h * scaleY;
+                        float dX = (afterW - w) / 2;
+                        float dY = (afterH - h) / 2;
+                        iv.animate()
+                                .scaleX(scaleX)
+                                .scaleY(scaleY)
+                                .translationXBy(array[0] - params.leftMargin + dX)
+                                .translationYBy(array[1] - params.topMargin + dY)
+                                .setDuration(1000).start();
+                    }
                 }
 
                 @Override

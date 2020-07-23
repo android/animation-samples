@@ -73,6 +73,15 @@ public class MainActivity extends AppCompatActivity {
              * {@link ActivityOptionsCompat#makeSceneTransitionAnimation(Activity, Pair[])} factory
              * method.
              */
+            View imageview_item = view.findViewById(R.id.imageview_item);
+            int[] location = new int[2];
+            imageview_item.getLocationOnScreen(location);
+            intent.putExtra("location_x", location[0]);
+            intent.putExtra("location_y", location[1]);
+            int w = imageview_item.getRight() - imageview_item.getLeft();
+            int h = imageview_item.getBottom() - imageview_item.getTop();
+            intent.putExtra("width", w);
+            intent.putExtra("height", h);
             @SuppressWarnings("unchecked")
             ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
                     MainActivity.this,
