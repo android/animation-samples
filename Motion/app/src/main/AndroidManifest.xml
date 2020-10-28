@@ -19,6 +19,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.android.motion">
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"

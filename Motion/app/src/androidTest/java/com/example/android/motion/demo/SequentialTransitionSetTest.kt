@@ -59,13 +59,13 @@ class SequentialTransitionSetTest {
 
         set[0].interpolator!!.let { interpolator ->
             val si = interpolator as SegmentInterpolator
-            assertThat(si.base).isSameAs(set.interpolator)
+            assertThat(si.base).isSameInstanceAs(set.interpolator)
             assertThat(si.start).isEqualTo(0f)
             assertThat(si.end).isEqualTo(0.5f)
         }
         set[1].interpolator!!.let { interpolator ->
             val si = interpolator as SegmentInterpolator
-            assertThat(si.base).isSameAs(set.interpolator)
+            assertThat(si.base).isSameInstanceAs(set.interpolator)
             assertThat(si.start).isEqualTo(0.5f)
             assertThat(si.end).isEqualTo(1f)
         }
@@ -81,13 +81,13 @@ class SequentialTransitionSetTest {
 
         set[0].interpolator!!.let { interpolator ->
             val si = interpolator as SegmentInterpolator
-            assertThat(si.base).isSameAs(set.interpolator)
+            assertThat(si.base).isSameInstanceAs(set.interpolator)
             assertThat(si.start).isEqualTo(0f)
             assertThat(si.end).isEqualTo(0.5f)
         }
         set[1].interpolator!!.let { interpolator ->
             val si = interpolator as SegmentInterpolator
-            assertThat(si.base).isSameAs(set.interpolator)
+            assertThat(si.base).isSameInstanceAs(set.interpolator)
             assertThat(si.start).isEqualTo(0.5f)
             assertThat(si.end).isEqualTo(1f)
         }
@@ -103,7 +103,7 @@ class SequentialTransitionSetTest {
 
         set[0].interpolator!!.let { interpolator ->
             val si = interpolator as SegmentInterpolator
-            assertThat(si.base).isSameAs(set.interpolator)
+            assertThat(si.base).isSameInstanceAs(set.interpolator)
             assertThat(si.start).isEqualTo(0f)
             assertThat(si.end).isEqualTo(0.4f)
             assertThat(si.getInterpolation(0f)).isWithin(0.01f).of(0f)
@@ -111,7 +111,7 @@ class SequentialTransitionSetTest {
         }
         set[1].interpolator!!.let { interpolator ->
             val si = interpolator as SegmentInterpolator
-            assertThat(si.base).isSameAs(set.interpolator)
+            assertThat(si.base).isSameInstanceAs(set.interpolator)
             assertThat(si.start).isEqualTo(0.4f)
             assertThat(si.end).isEqualTo(1f)
             assertThat(si.getInterpolation(0f)).isWithin(0.01f).of(0f)
