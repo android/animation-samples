@@ -20,7 +20,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.motion.R
 import com.example.android.motion.ui.EdgeToEdge
