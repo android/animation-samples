@@ -16,9 +16,11 @@
 
 package com.example.android.drawableanimations.demo.animated
 
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
@@ -29,6 +31,22 @@ import com.example.android.drawableanimations.viewBindings
 class AnimatedFragment : Fragment(R.layout.animated_fragment) {
 
     private val binding by viewBindings(AnimatedFragmentBinding::bind)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(
+            true // default to enabled
+        ) {
+            override fun handleOnBackPressed() {
+               binding.stop.performClick()
+                activity?.supportFragmentManager?.popBackStack()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,  // LifecycleOwner
+            callback
+        )
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val icon = AnimatedVectorDrawableCompat.create(
