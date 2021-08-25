@@ -34,15 +34,15 @@ class AnimatedFragment : Fragment(R.layout.animated_fragment) {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         val callback: OnBackPressedCallback = object : OnBackPressedCallback(
-            true // default to enabled
+            true 
         ) {
             override fun handleOnBackPressed() {
                binding.stop.performClick()
-                activity?.supportFragmentManager?.popBackStack()
+               activity?.supportFragmentManager?.popBackStack()
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(
-            this,  // LifecycleOwner
+            this,  
             callback
         )
     }
