@@ -16,11 +16,14 @@
 
 package com.example.android.drawableanimations
 
+import android.R
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.viewbinding.ViewBinding
+
 
 /**
  * Retrieves a view binding handle in a Fragment. The field is available only after
@@ -45,12 +48,18 @@ inline fun <reified BindingT : ViewBinding> Fragment.viewBindings(
             cached = null
         }
     }
-
-    override val value: BindingT
-        get() = cached ?: bind(requireView()).also {
-            viewLifecycleOwner.lifecycle.addObserver(observer)
-            cached = it
-        }
+//    val mConstraintLayout: ConstraintLayout = findViewById(R.id.constraintLayoutParent)
+ //   var layout: View = layoutInflater.inflate(R.layout.activity_list_item, null)
+//    override val value: BindingT
+//        get() = cached ?: bind(requireView()).also {
+//            viewLifecycleOwner.lifecycle.addObserver(observer)
+//            cached = it
+//        }
+override val value: BindingT
+    get() = cached ?: bind(requireView()).also {
+        viewLifecycleOwner.lifecycle.addObserver(observer)
+        cached = it
+    }
 
     override fun isInitialized() = cached != null
 }

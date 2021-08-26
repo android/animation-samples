@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import androidx.vectordrawable.graphics.drawable.SeekableAnimatedVectorDrawable
 import com.example.android.drawableanimations.R
 import com.example.android.drawableanimations.databinding.SeekableFragmentBinding
@@ -28,6 +29,11 @@ import com.example.android.drawableanimations.viewBindings
 class SeekableFragment : Fragment(R.layout.seekable_fragment) {
 
     private val binding by viewBindings(SeekableFragmentBinding::bind)
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        (binding.icon.drawable as? AnimatedVectorDrawableCompat)?.clearAnimationCallbacks()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // You can use the same XML format of <animated-vector> to inflate a
