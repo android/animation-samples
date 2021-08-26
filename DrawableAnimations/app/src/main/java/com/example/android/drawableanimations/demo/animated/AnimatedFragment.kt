@@ -27,6 +27,7 @@ import com.example.android.drawableanimations.databinding.AnimatedFragmentBindin
 import com.example.android.drawableanimations.viewBindings
 
 class AnimatedFragment : Fragment(R.layout.animated_fragment) {
+
     private val binding by viewBindings(AnimatedFragmentBinding::bind)
 
     override fun onDestroyView() {
@@ -57,4 +58,3 @@ class AnimatedFragment : Fragment(R.layout.animated_fragment) {
         binding.stop.setOnClickListener { icon.stop() }
     }
 }
-
