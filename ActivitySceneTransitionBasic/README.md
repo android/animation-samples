@@ -26,8 +26,7 @@ Pre-requisites
 Screenshots
 -------------
 
-<img src="screenshots/1-main.png" height="400" alt="Screenshot"/> <img src="screenshots/2-transition.png" height="400" alt="Screenshot"/> <img src="screenshots/3-transition.png" height="400" alt="Screenshot"/> <img src="screenshots/4-detail.png" height="400" alt="Screenshot"/> 
-
+<img src="screenshots/capture.gif" height="400" alt="Screenshot"/>
 Getting Started
 ---------------
 

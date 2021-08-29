@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
             ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
                     MainActivity.this,
 
+                    // ここで、起動されたアクティビティで、移行元のビューと移行先のビューの名前を含むペアアイテムのリストを提供する
+                    // アニメーション適用される対象のView要素を設定.
                     // Now we provide a list of Pair items which contain the view we can transitioning
                     // from, and the name of the view it is transitioning to, in the launched activity
                     new Pair<>(view.findViewById(R.id.imageview_item),

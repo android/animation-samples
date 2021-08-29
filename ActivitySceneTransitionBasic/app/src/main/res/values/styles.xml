@@ -18,6 +18,7 @@
 
     <!-- Activity theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- 遷移アニメーションのスタイル アイテム定義: 共有要素のEnter/Exitアニメーションを設定 -->
         <!-- Set the transitions which are used for the entrance and exit of shared elements -->
         <item name="android:windowSharedElementEnterTransition" tools:ignore="NewApi">
             @transition/grid_detail_transition
