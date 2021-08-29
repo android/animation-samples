@@ -33,7 +33,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val adapter = DemoListAdapter { demo ->
-            activity?.let { activity ->
+            requireActivity().let { activity ->
                 activity.supportFragmentManager.commit {
                     replace(R.id.main, demo.createFragment())
                     addToBackStack(null)
@@ -50,6 +50,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        activity?.setTitle(R.string.app_name)
+        requireActivity().setTitle(R.string.app_name)
     }
 }
