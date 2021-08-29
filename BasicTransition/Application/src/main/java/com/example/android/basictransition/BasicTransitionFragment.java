@@ -17,7 +17,6 @@
 package com.example.android.basictransition;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.transition.Scene;
 import android.transition.TransitionInflater;
 import android.transition.TransitionManager;
@@ -25,6 +24,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
+
+import androidx.fragment.app.Fragment;
 
 public class BasicTransitionFragment extends Fragment
         implements RadioGroup.OnCheckedChangeListener {
