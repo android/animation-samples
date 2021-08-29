@@ -22,6 +22,7 @@ import android.widget.FrameLayout;
 
 /**
  * {@link android.widget.FrameLayout} which forces itself to be laid out as square.
+ * 正方形レイアウトとして配置することを強制するカスタムクラス.
  */
 public class SquareFrameLayout extends FrameLayout {
 

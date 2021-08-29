@@ -109,6 +109,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     /**
+     * 遷移アニメーション終了後、イメージをロードする.
      * Try and add a {@link Transition.TransitionListener} to the entering shared element
      * {@link Transition}. We do this so that we can load the full-size image after the transition
      * has completed.
