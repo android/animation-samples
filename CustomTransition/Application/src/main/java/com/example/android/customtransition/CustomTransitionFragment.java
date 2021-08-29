@@ -20,7 +20,6 @@ import com.example.android.common.logger.Log;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.transition.Scene;
 import android.transition.Transition;
 import android.transition.TransitionManager;
@@ -28,6 +27,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.fragment.app.Fragment;
 
 public class CustomTransitionFragment extends Fragment implements View.OnClickListener {
 
