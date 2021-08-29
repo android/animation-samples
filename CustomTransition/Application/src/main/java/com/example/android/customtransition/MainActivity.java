@@ -18,10 +18,11 @@
 package com.example.android.customtransition;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ViewAnimator;
+
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.android.common.activities.SampleActivityBase;
 import com.example.android.common.logger.Log;

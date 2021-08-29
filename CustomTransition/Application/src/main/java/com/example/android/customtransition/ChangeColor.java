@@ -31,12 +31,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 
+import com.example.android.common.logger.Log;
+
+// Transitionをカスタマイズ.
+// ValueAnimator / ArgbEvaluatorを使ったカラーの変更アニメーション処理を行う.
 public class ChangeColor extends Transition {
 
-    /** Key to store a color value in TransitionValues object */
+    /**
+     * Key to store a color value in TransitionValues object
+     */
     private static final String PROPNAME_BACKGROUND = "customtransition:change_color:background";
 
     // BEGIN_INCLUDE (capture_values)
+
     /**
      * Convenience method: Add the background Drawable property value
      * to the TransitionsValues.value Map for a target.
@@ -48,17 +55,26 @@ public class ChangeColor extends Transition {
 
     @Override
     public void captureStartValues(TransitionValues transitionValues) {
+        Log.d("ando", "captureStartValues");
         captureValues(transitionValues);
     }
 
     // Capture the value of the background drawable property for a target in the ending Scene.
     @Override
     public void captureEndValues(TransitionValues transitionValues) {
+        Log.d("ando", "captureEndValues");
         captureValues(transitionValues);
     }
     // END_INCLUDE (capture_values)
 
     // BEGIN_INCLUDE (create_animator)
+
+    /**
+     * 開始シーンと終了シーンの両方にあるターゲットごとにアニメーションを作成します。 それぞれについて
+     * ターゲットのペア、背景プロパティ値が（グラフィックではなく）色の場合、
+     * 開始との間を補間するArgbEvaluatorに基づいてValueAnimatorを作成します
+     * 終了色。 また、それぞれのビューの背景色を設定する更新リスナーを作成します
+     */
     // Create an animation for each target that is in both the starting and ending Scene. For each
     // pair of targets, if their background property value is a color (rather than a graphic),
     // create a ValueAnimator based on an ArgbEvaluator that interpolates between the starting and
@@ -67,6 +83,7 @@ public class ChangeColor extends Transition {
     @Override
     public Animator createAnimator(ViewGroup sceneRoot,
                                    TransitionValues startValues, TransitionValues endValues) {
+        Log.d("ando", "createAnimator");
         // This transition can only be applied to views that are on both starting and ending scenes.
         if (null == startValues || null == endValues) {
             return null;
@@ -86,6 +103,7 @@ public class ChangeColor extends Transition {
             // If the background color for the target in the starting and ending layouts is
             // different, create an animation.
             if (startColor.getColor() != endColor.getColor()) {
+                // 開始レイアウトから終了レイアウトに変更します。アニメーションはUIスレッドで実行されます。
                 // Create a new Animator object to apply to the targets as the transitions framework
                 // changes from the starting to the ending layout. Use the class ValueAnimator,
                 // which provides a timing pulse to change property values provided to it. The
