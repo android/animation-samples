@@ -21,7 +21,7 @@
     android:clipToPadding="false"
     android:columnWidth="120dp"
     android:drawSelectorOnTop="true"
-    android:horizontalSpacing="@dimen/grid_spacing"
+    android:horizontalSpacing="4dp"
     android:numColumns="auto_fit"
-    android:padding="@dimen/grid_spacing"
-    android:verticalSpacing="@dimen/grid_spacing" />
+    android:padding="4dp"
+    android:verticalSpacing="4dp" />
