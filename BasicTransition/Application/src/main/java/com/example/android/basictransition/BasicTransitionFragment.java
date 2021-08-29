@@ -27,6 +27,7 @@ import android.widget.RadioGroup;
 
 import androidx.fragment.app.Fragment;
 
+// TransitionManager / Sceneを使ったサンプル
 public class BasicTransitionFragment extends Fragment
         implements RadioGroup.OnCheckedChangeListener {
 
