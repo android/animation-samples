@@ -61,6 +61,7 @@ public class DetailActivity extends AppCompatActivity {
 
         // BEGIN_INCLUDE(detail_set_view_name)
         /*
+         * ここでセットするViewは、遷移元のactivityOptionsで設定したViewとペアであること.
          * Set the name of the view's which will be transition to, using the static values above.
          * This could be done in the layout XML, but exposing it via static variables allows easy
          * querying from other Activities
