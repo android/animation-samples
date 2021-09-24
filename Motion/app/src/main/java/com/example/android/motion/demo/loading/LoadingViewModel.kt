@@ -19,15 +19,17 @@ package com.example.android.motion.demo.loading
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
-import androidx.paging.PagedList
-import androidx.paging.toLiveData
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.liveData
 import com.example.android.motion.model.Cheese
 
 class LoadingViewModel : ViewModel() {
 
-    private var source: LiveData<PagedList<Cheese>>? = null
-    private val _cheeses = MediatorLiveData<PagedList<Cheese>>()
-    val cheeses: LiveData<PagedList<Cheese>> = _cheeses
+    private var source: LiveData<PagingData<Cheese>>? = null
+    private val _cheeses = MediatorLiveData<PagingData<Cheese>>()
+    val cheeses: LiveData<PagingData<Cheese>> = _cheeses
 
     init {
         refresh()
@@ -35,7 +37,9 @@ class LoadingViewModel : ViewModel() {
 
     fun refresh() {
         source?.let { _cheeses.removeSource(it) }
-        val s = CheeseDataSource.toLiveData(pageSize = 15)
+        val s = Pager(PagingConfig(pageSize = 15)) {
+            CheeseDataSource()
+        }.liveData
         source = s
         _cheeses.addSource(s) { _cheeses.postValue(it) }
     }
