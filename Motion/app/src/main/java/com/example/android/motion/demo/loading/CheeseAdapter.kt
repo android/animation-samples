@@ -24,14 +24,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.animation.doOnEnd
-import androidx.paging.PagedListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.android.motion.R
 import com.example.android.motion.model.Cheese
 
-internal class CheeseAdapter : PagedListAdapter<Cheese, CheeseViewHolder>(Cheese.DIFF_CALLBACK) {
+internal class CheeseAdapter : PagingDataAdapter<Cheese, CheeseViewHolder>(Cheese.DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheeseViewHolder {
         return CheeseViewHolder(parent)
@@ -90,7 +90,7 @@ internal class CheeseViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         // Shift the timing of fade-in/out for each item by its adapter position. We use the
         // elapsed real time to make this independent from the timing of method call.
         animation.currentPlayTime =
-            (SystemClock.elapsedRealtime() - adapterPosition * 30L) % FADE_DURATION
+            (SystemClock.elapsedRealtime() - bindingAdapterPosition * 30L) % FADE_DURATION
         animation.start()
         // Show the placeholder UI.
         image.setImageResource(R.drawable.image_placeholder)

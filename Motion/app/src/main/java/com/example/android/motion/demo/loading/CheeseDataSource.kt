@@ -16,37 +16,45 @@
 
 package com.example.android.motion.demo.loading
 
-import android.os.SystemClock
-import androidx.paging.DataSource
-import androidx.paging.PositionalDataSource
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import com.example.android.motion.model.Cheese
+import kotlinx.coroutines.delay
 
-class CheeseDataSource : PositionalDataSource<Cheese>() {
+class CheeseDataSource : PagingSource<Int, Cheese>() {
 
-    companion object Factory : DataSource.Factory<Int, Cheese>() {
-        override fun create(): DataSource<Int, Cheese> = CheeseDataSource()
+    override fun getRefreshKey(state: PagingState<Int, Cheese>): Int? {
+        return state.anchorPosition
     }
 
-    override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Cheese>) {
-        // Simulate a slow network.
-        SystemClock.sleep(3000L)
-        callback.onResult(
-            Cheese.ALL.subList(
-                params.requestedStartPosition,
-                params.requestedStartPosition + params.requestedLoadSize
-            ),
-            params.requestedStartPosition,
-            Cheese.ALL.size
-        )
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Cheese> {
+        return params.key.let { position ->
+            if (position == null) {
+                LoadResult.Page(
+                    emptyList(),
+                    prevKey = null,
+                    nextKey = 0,
+                    itemsBefore = 0,
+                    itemsAfter = Cheese.ALL.size
+                )
+            } else {
+                // Simulate slow network.
+                delay(3000)
+                LoadResult.Page(
+                    Cheese.ALL.subList(
+                        position,
+                        (position + params.loadSize).coerceAtMost(Cheese.ALL.size)
+                    ),
+                    prevKey = (position - params.loadSize).orNullIf { it < 0 },
+                    nextKey = (position + params.loadSize).orNullIf { it >= Cheese.ALL.size },
+                    itemsBefore = position,
+                    itemsAfter = Cheese.ALL.size - position
+                )
+            }
+        }
     }
+}
 
-    override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Cheese>) {
-        // Simulate a slow network.
-        SystemClock.sleep(3000L)
-        callback.onResult(
-            Cheese.ALL.subList(
-                params.startPosition, params.startPosition + params.loadSize
-            )
-        )
-    }
+private fun Int.orNullIf(condition: (Int) -> Boolean): Int? {
+    return if (condition(this)) null else this
 }

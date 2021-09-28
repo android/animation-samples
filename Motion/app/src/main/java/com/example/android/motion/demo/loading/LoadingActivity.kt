@@ -82,7 +82,7 @@ class LoadingActivity : AppCompatActivity() {
                 list.itemAnimator = null
                 TransitionManager.beginDelayedTransition(list, fade)
             }
-            cheeseAdapter.submitList(cheeses)
+            cheeseAdapter.submitData(lifecycle, cheeses)
         }
     }
 
