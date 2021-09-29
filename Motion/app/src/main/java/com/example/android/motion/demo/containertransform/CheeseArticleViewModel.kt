@@ -14,18 +14,22 @@
  * limitations under the License.
  */
 
-package com.example.android.motion.demo.navfadethrough
+package com.example.android.motion.demo.containertransform
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.example.android.motion.R
-import com.example.android.motion.ui.EdgeToEdge
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.android.motion.model.Cheese
 
-class NavFadeThroughActivity : AppCompatActivity() {
+class CheeseArticleViewModel : ViewModel() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.nav_fade_through_activity)
-        EdgeToEdge.setUpRoot(findViewById(R.id.nav_host))
-    }
+    private val _cheese = MutableLiveData<Cheese?>()
+    val cheese: LiveData<Cheese?> = _cheese
+
+    var cheeseId: Long?
+        get() = _cheese.value?.id
+        set(value) {
+            _cheese.value = Cheese.ALL.find { it.id == value }
+        }
+
 }

@@ -32,7 +32,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/nav_fade_through_label" />
+            app:title="@string/container_transform_label" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
