@@ -110,13 +110,14 @@
     </string-array>
 
     <!-- Nav Fade Through -->
-    <string name="nav_fade_through_label">Navigation > Fade through</string>
-    <string name="nav_fade_through_description">
+    <string name="container_transform_label">Navigation > Container transform</string>
+    <string name="container_transform_description">
         To simplify overlapping motion, consider substituting a focal element with a fade through
         transition.
     </string>
-    <string-array name="nav_fade_through_apis">
+    <string-array name="container_transform_apis">
         <item>Transition</item>
+        <item>MaterialContainerTransform</item>
         <item>FragmentNavigator.Extras</item>
     </string-array>
 

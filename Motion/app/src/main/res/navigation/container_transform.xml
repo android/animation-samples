@@ -17,12 +17,12 @@
 <navigation
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_fade_through"
+    android:id="@+id/container_transform"
     app:startDestination="@id/cheeseCardFragment">
 
     <fragment
         android:id="@+id/cheeseCardFragment"
-        android:name="com.example.android.motion.demo.navfadethrough.CheeseCardFragment"
+        android:name="com.example.android.motion.demo.containertransform.CheeseCardFragment"
         android:label="CheeseCardFragment">
         <action
             android:id="@+id/action_article"
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/cheeseArticleFragment"
-        android:name="com.example.android.motion.demo.navfadethrough.CheeseArticleFragment"
+        android:name="com.example.android.motion.demo.containertransform.CheeseArticleFragment"
         android:label="CheeseArticleFragment">
         <argument
             android:name="cheeseId"

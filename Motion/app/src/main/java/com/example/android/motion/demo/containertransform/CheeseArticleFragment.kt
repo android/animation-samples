@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.motion.demo.navfadethrough
+package com.example.android.motion.demo.containertransform
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,7 +24,6 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.annotation.IdRes
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
@@ -36,25 +35,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.transition.ChangeBounds
-import androidx.transition.ChangeTransform
-import androidx.transition.Transition
 import com.example.android.motion.R
-import com.example.android.motion.demo.FAST_OUT_SLOW_IN
-import com.example.android.motion.demo.LARGE_COLLAPSE_DURATION
-import com.example.android.motion.demo.LARGE_EXPAND_DURATION
-import com.example.android.motion.demo.plusAssign
-import com.example.android.motion.demo.sharedelement.MirrorView
-import com.example.android.motion.demo.sharedelement.SharedFade
-import com.example.android.motion.demo.transitionTogether
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.google.android.material.transition.MaterialContainerTransform
 
 class CheeseArticleFragment : Fragment() {
 
     companion object {
         const val TRANSITION_NAME_BACKGROUND = "background"
-        const val TRANSITION_NAME_CARD_CONTENT = "card_content"
-        const val TRANSITION_NAME_ARTICLE_CONTENT = "article_content"
     }
 
     private val args: CheeseArticleFragmentArgs by navArgs()
@@ -65,24 +53,10 @@ class CheeseArticleFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         // These are the shared element transitions.
-        sharedElementEnterTransition =
-            createSharedElementTransition(LARGE_EXPAND_DURATION, R.id.article_mirror)
-        sharedElementReturnTransition =
-            createSharedElementTransition(LARGE_COLLAPSE_DURATION, R.id.card_mirror)
+        sharedElementEnterTransition = MaterialContainerTransform(requireContext(), true)
+        sharedElementReturnTransition = MaterialContainerTransform(requireContext(), false)
 
         viewModel.cheeseId = args.cheeseId
-    }
-
-    private fun createSharedElementTransition(duration: Long, @IdRes noTransform: Int): Transition {
-        return transitionTogether {
-            this.duration = duration
-            interpolator = FAST_OUT_SLOW_IN
-            this += SharedFade()
-            this += ChangeBounds()
-            this += ChangeTransform()
-                // The content is already transformed along with the parent. Exclude it.
-                .excludeTarget(noTransform, true)
-        }
     }
 
     override fun onCreateView(
@@ -102,11 +76,8 @@ class CheeseArticleFragment : Fragment() {
 
         val background: FrameLayout = view.findViewById(R.id.background)
         val coordinator: CoordinatorLayout = view.findViewById(R.id.coordinator)
-        val mirror: MirrorView = view.findViewById(R.id.card_mirror)
 
         ViewCompat.setTransitionName(background, TRANSITION_NAME_BACKGROUND)
-        ViewCompat.setTransitionName(coordinator, TRANSITION_NAME_ARTICLE_CONTENT)
-        ViewCompat.setTransitionName(mirror, TRANSITION_NAME_CARD_CONTENT)
         ViewGroupCompat.setTransitionGroup(coordinator, true)
 
         // Adjust the edge-to-edge display.
