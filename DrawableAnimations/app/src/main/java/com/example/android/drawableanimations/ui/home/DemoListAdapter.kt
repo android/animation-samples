@@ -31,7 +31,7 @@ internal class DemoListAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DemoViewHolder {
         return DemoViewHolder(LayoutInflater.from(parent.context), parent).apply {
             itemView.setOnClickListener {
-                demoClicked(getItem(adapterPosition))
+                demoClicked(getItem(bindingAdapterPosition))
             }
         }
     }
