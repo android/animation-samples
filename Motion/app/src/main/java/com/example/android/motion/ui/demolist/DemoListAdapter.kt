@@ -76,7 +76,7 @@ internal class DemoViewHolder(
         label.text = demo.label
         description.text = demo.description
         description.isVisible = demo.description != null
-        for (i in 0 until apis.size) {
+        for (i in apis.indices) {
             if (demo.apis.size > i) {
                 apis[i].run {
                     text = demo.apis[i]

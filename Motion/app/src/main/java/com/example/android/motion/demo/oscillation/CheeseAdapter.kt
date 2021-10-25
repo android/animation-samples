@@ -22,7 +22,6 @@ import android.widget.EdgeEffect
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.doOnLayout
-import androidx.core.view.doOnNextLayout
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import androidx.recyclerview.widget.ListAdapter

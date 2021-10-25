@@ -19,7 +19,6 @@ package com.example.android.motion.ui.demolist
 import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Bundle
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

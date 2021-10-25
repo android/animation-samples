@@ -30,12 +30,19 @@ class AnimatedFragment : Fragment(R.layout.animated_fragment) {
 
     private val binding by viewBindings(AnimatedFragmentBinding::bind)
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        (binding.icon.drawable as? AnimatedVectorDrawableCompat)?.clearAnimationCallbacks()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         val icon = AnimatedVectorDrawableCompat.create(
             requireContext(),
             R.drawable.ic_hourglass_animated
         )!!
-        icon.registerAnimationCallback(object: Animatable2Compat.AnimationCallback() {
+
+        icon.registerAnimationCallback(object : Animatable2Compat.AnimationCallback() {
             override fun onAnimationStart(drawable: Drawable?) {
                 binding.start.isEnabled = false
                 binding.stop.isEnabled = true

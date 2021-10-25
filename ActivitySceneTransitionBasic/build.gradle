@@ -17,17 +17,21 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
+<<<<<<< HEAD
         classpath 'com.android.tools.build:gradle:7.0.1'
+=======
+        classpath 'com.android.tools.build:gradle:4.2.2'
+>>>>>>> remotes/upstream/main
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }

@@ -3,12 +3,12 @@ Android Interpolator Sample
 ===================================
 
 This sample demonstrates the use of animation interpolators and path animations for
-`Material Design`.
+Material Design.
 
 Introduction
 ------------
 
-Material design is a comprehensive guide for visual, motion, and interaction
+`Material Design` is a comprehensive guide for visual, motion, and interaction
 design across platforms and devices. Starting with API level 21,
 [Android includes support for material design][1] apps.
 

@@ -19,6 +19,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.android.motion">
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -168,8 +174,8 @@
         </activity>
 
         <activity
-            android:name=".demo.navfadethrough.NavFadeThroughActivity"
-            android:label="@string/nav_fade_through_label"
+            android:name=".demo.containertransform.ContainerTransformActivity"
+            android:label="@string/container_transform_label"
             android:theme="@style/Theme.Motion.Translucent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -178,10 +184,10 @@
 
             <meta-data
                 android:name="com.example.android.motion.demo.DESCRIPTION"
-                android:value="@string/nav_fade_through_description" />
+                android:value="@string/container_transform_description" />
             <meta-data
                 android:name="com.example.android.motion.demo.APIS"
-                android:resource="@array/nav_fade_through_apis" />
+                android:resource="@array/container_transform_apis" />
         </activity>
 
     </application>

@@ -14,28 +14,12 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<navigation
+<androidx.fragment.app.FragmentContainerView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_fade_through"
-    app:startDestination="@id/cheeseCardFragment">
-
-    <fragment
-        android:id="@+id/cheeseCardFragment"
-        android:name="com.example.android.motion.demo.navfadethrough.CheeseCardFragment"
-        android:label="CheeseCardFragment">
-        <action
-            android:id="@+id/action_article"
-            app:destination="@id/cheeseArticleFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/cheeseArticleFragment"
-        android:name="com.example.android.motion.demo.navfadethrough.CheeseArticleFragment"
-        android:label="CheeseArticleFragment">
-        <argument
-            android:name="cheeseId"
-            app:argType="long" />
-    </fragment>
-
-</navigation>
+    android:id="@+id/nav_host"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/container_transform" />

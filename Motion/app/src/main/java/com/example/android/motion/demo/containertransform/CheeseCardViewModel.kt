@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.motion.demo.navfadethrough
+package com.example.android.motion.demo.containertransform
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

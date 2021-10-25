@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.motion.demo.navfadethrough
+package com.example.android.motion.demo.containertransform
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,7 +31,6 @@ import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.observe
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.transition.Fade
@@ -40,7 +39,6 @@ import com.example.android.motion.demo.FAST_OUT_LINEAR_IN
 import com.example.android.motion.demo.LARGE_COLLAPSE_DURATION
 import com.example.android.motion.demo.LARGE_EXPAND_DURATION
 import com.example.android.motion.demo.LINEAR_OUT_SLOW_IN
-import com.example.android.motion.demo.sharedelement.MirrorView
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.card.MaterialCardView
 
@@ -76,7 +74,6 @@ class CheeseCardFragment : Fragment() {
         val cardContent: ConstraintLayout = view.findViewById(R.id.card_content)
         val image: ImageView = view.findViewById(R.id.image)
         val name: TextView = view.findViewById(R.id.name)
-        val mirror: MirrorView = view.findViewById(R.id.article_mirror)
 
         ViewCompat.setOnApplyWindowInsetsListener(view.parent as View) { _, insets ->
             toolbar.updateLayoutParams<AppBarLayout.LayoutParams> {
@@ -91,8 +88,6 @@ class CheeseCardFragment : Fragment() {
         }
 
         ViewCompat.setTransitionName(card, "card")
-        ViewCompat.setTransitionName(cardContent, "card_content")
-        ViewCompat.setTransitionName(mirror, "article")
         ViewGroupCompat.setTransitionGroup(cardContent, true)
 
         viewModel.cheese.observe(viewLifecycleOwner) { cheese ->
@@ -106,8 +101,6 @@ class CheeseCardFragment : Fragment() {
                 CheeseCardFragmentDirections.actionArticle(cheese.id),
                 FragmentNavigatorExtras(
                     card to CheeseArticleFragment.TRANSITION_NAME_BACKGROUND,
-                    cardContent to CheeseArticleFragment.TRANSITION_NAME_CARD_CONTENT,
-                    mirror to CheeseArticleFragment.TRANSITION_NAME_ARTICLE_CONTENT
                 )
             )
         }

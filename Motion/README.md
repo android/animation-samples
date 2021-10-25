@@ -45,6 +45,6 @@ package.
 
 <img src="screenshots/sharedelement.gif" height="400" alt="sharedelement"/>
 
-### [Navigation > Fade through](app/src/main/java/com/example/android/motion/demo/navfadethrough)
+### [Navigation > Container transform](app/src/main/java/com/example/android/motion/demo/containertransform)
 
-<img src="screenshots/navigationfadethrough.gif" height="400" alt="navfadethrough"/>
+<img src="screenshots/containertransform.gif" height="400" alt="containertransform"/>

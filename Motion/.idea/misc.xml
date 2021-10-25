@@ -3,12 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="app/src/main/res/layout/fade_through_activity.xml" value="0.14969604863221886" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+=======
+        <entry key="app/src/main/res/layout/container_transform_activity.xml" value="0.19537037037037036" />
+        <entry key="app/src/main/res/layout/demo_item.xml" value="0.2074074074074074" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+>>>>>>> remotes/upstream/main
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
