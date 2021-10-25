@@ -51,10 +51,12 @@ class Dissolve : Transition() {
         private val SUPPORTS_VIEW_OVERLAY = Build.VERSION.SDK_INT >= 18
     }
 
+    // 現在の画面の状態をスクリーンショットを撮って記録する
     override fun captureStartValues(transitionValues: TransitionValues) {
         captureValues(transitionValues)
     }
 
+    // 画面が変更された後の状態を記録する
     override fun captureEndValues(transitionValues: TransitionValues) {
         captureValues(transitionValues)
     }
@@ -79,7 +81,7 @@ class Dissolve : Transition() {
 
         // No need to animate if the start and the end look identical.
         if (startBitmap.sameAs(endBitmap)) {
-            return null
+            return null // 画面が変わっていない場合はnullを返す
         }
 
         val view = endValues.view
@@ -90,7 +92,7 @@ class Dissolve : Transition() {
         // Use ViewOverlay to show the start bitmap on top of the view that is currently showing the
         // end state. This allows us to overlap the start and end states during the animation.
         val overlay = view.overlay
-        overlay.add(startDrawable)
+        overlay.add(startDrawable) // viewを重ねる
 
         // Fade out the start bitmap.
         return ObjectAnimator

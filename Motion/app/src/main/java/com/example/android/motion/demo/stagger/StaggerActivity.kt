@@ -70,9 +70,10 @@ class StaggerActivity : AppCompatActivity() {
         val stagger = Stagger()
 
         viewModel.cheeses.observe(this) { cheeses ->
-            // Delay the stagger effect until the list is updated.
-            TransitionManager.beginDelayedTransition(list, stagger)
-            adapter.submitList(cheeses)
+            adapter.submitList(cheeses){
+                // Delay the stagger effect until the list is updated.
+                TransitionManager.beginDelayedTransition(list, stagger)
+            }
         }
     }
 

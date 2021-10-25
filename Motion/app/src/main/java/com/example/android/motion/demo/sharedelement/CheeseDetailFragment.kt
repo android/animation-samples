@@ -84,9 +84,9 @@ class CheeseDetailFragment : Fragment() {
             this.duration = duration
             interpolator = FAST_OUT_SLOW_IN
             this += SharedFade()
-            this += ChangeImageTransform()
-            this += ChangeBounds()
-            this += ChangeTransform()
+            this += ChangeImageTransform() // ImageViewの縦横比率を変えているのでそれをスムーズに見せるために使っている
+            this += ChangeBounds() // Viewのサイズを変更
+            this += ChangeTransform() // Viewの位置とViewのヒエラルキーを変えている
         }
     }
 

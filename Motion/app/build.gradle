@@ -23,11 +23,7 @@ android {
 
     defaultConfig {
         applicationId 'com.example.android.motion'
-<<<<<<< HEAD
         minSdkVersion 26
-=======
-        minSdkVersion 14
->>>>>>> remotes/upstream/main
         targetSdkVersion 30
         versionCode 1
         versionName '1.0'

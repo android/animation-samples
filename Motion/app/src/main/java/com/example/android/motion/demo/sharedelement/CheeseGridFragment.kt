@@ -66,7 +66,7 @@ class CheeseGridFragment : Fragment() {
                 addTarget(R.id.app_bar)
             }
             // The grid items.
-            this += Explode().apply {
+            this += Explode().apply { // 外に開いていくようなエフェクトをかける場合は、Explodeを使って適用できる
                 mode = Explode.MODE_OUT
                 excludeTarget(R.id.app_bar, true)
             }

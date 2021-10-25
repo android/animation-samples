@@ -95,6 +95,7 @@ class CheeseCardFragment : Fragment() {
             image.setImageResource(cheese.image)
         }
 
+        // Navigation Graphを使った場合、FragmentNavigatorExtrasを使用してShared Elementのアニメーションを実現する
         card.setOnClickListener { v ->
             val cheese = viewModel.cheese.value ?: return@setOnClickListener
             v.findNavController().navigate(

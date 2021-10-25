@@ -39,8 +39,9 @@ class Stagger : Fade(IN) {
         // This duration is for a single item. See the comment below about propagation.
         duration = LARGE_EXPAND_DURATION / 2
         interpolator = LINEAR_OUT_SLOW_IN
+        // 一つ一つの効果が伝播していく表現をPropagationを使って実装している
         propagation = SidePropagation().apply {
-            setSide(Gravity.BOTTOM)
+            setSide(Gravity.BOTTOM) // 下に向かって伝播する
             // We want the stagger effect to take as long as the duration of a single item.
             // In other words, the last item starts to fade in around the time when the first item
             // finishes animating. The overall animation will take about twice the duration of one

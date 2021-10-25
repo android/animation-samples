@@ -146,10 +146,10 @@ internal class CheeseViewHolder(
      */
     val rotation: SpringAnimation = SpringAnimation(itemView, SpringAnimation.ROTATION)
         .setSpring(
-            SpringForce()
-                .setFinalPosition(0f)
+            SpringForce() // バネの強さを設定
+                .setFinalPosition(0f) // 最終的に元の位置に戻る
                 .setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY)
-                .setStiffness(SpringForce.STIFFNESS_LOW)
+                .setStiffness(SpringForce.STIFFNESS_LOW) // どのくらいのスピードで戻るか
         )
         .addUpdateListener { _, _, velocity ->
             currentVelocity = velocity
