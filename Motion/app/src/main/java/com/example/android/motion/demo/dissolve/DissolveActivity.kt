@@ -21,6 +21,7 @@ import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.WindowCompat
 import androidx.transition.TransitionManager
 import com.example.android.motion.R
 import com.example.android.motion.demo.FAST_OUT_SLOW_IN
@@ -42,7 +43,7 @@ class DissolveActivity : AppCompatActivity() {
         val next: MaterialButton = findViewById(R.id.next)
 
         setSupportActionBar(toolbar)
-        EdgeToEdge.setUpRoot(findViewById(R.id.root))
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         EdgeToEdge.setUpAppBar(findViewById(R.id.app_bar), toolbar)
         EdgeToEdge.setUpScrollingContent(findViewById(R.id.content))
 

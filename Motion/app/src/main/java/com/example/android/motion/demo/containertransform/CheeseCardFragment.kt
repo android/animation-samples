@@ -27,6 +27,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewGroupCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
@@ -76,13 +77,14 @@ class CheeseCardFragment : Fragment() {
         val name: TextView = view.findViewById(R.id.name)
 
         ViewCompat.setOnApplyWindowInsetsListener(view.parent as View) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             toolbar.updateLayoutParams<AppBarLayout.LayoutParams> {
-                topMargin = insets.systemWindowInsetTop
+                topMargin = systemBars.top
             }
             content.updatePadding(
-                left = insets.systemWindowInsetLeft,
-                right = insets.systemWindowInsetRight,
-                bottom = insets.systemWindowInsetBottom
+                left = systemBars.left,
+                right = systemBars.right,
+                bottom = systemBars.bottom
             )
             insets
         }

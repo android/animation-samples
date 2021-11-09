@@ -22,6 +22,7 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.TransitionManager
@@ -50,7 +51,7 @@ class StaggerActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         val list: RecyclerView = findViewById(R.id.list)
         setSupportActionBar(toolbar)
-        EdgeToEdge.setUpRoot(findViewById(R.id.root))
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         EdgeToEdge.setUpAppBar(findViewById(R.id.app_bar), toolbar)
         EdgeToEdge.setUpScrollingContent(list)
 

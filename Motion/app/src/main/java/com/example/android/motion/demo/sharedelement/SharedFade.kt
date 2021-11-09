@@ -42,7 +42,7 @@ private val MIRROR_PROPERTIES = arrayOf(PROPNAME_IS_MIRROR)
  */
 class SharedFade : Transition() {
 
-    override fun getTransitionProperties(): Array<String>? {
+    override fun getTransitionProperties(): Array<String> {
         return MIRROR_PROPERTIES
     }
 
