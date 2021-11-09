@@ -55,7 +55,7 @@ internal class CheeseGridAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheeseViewHolder {
         return CheeseViewHolder(parent).apply {
             itemView.setOnClickListener { view ->
-                val cheese = getItem(adapterPosition)
+                val cheese = getItem(bindingAdapterPosition)
 
                 // Record the selected item so that we can make the item ready before starting the
                 // reenter transition.

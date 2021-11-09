@@ -19,6 +19,7 @@ package com.example.android.motion
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.commitNow
 import com.example.android.motion.ui.EdgeToEdge
 import com.example.android.motion.ui.demolist.DemoListFragment
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         // Configure edge-to-edge display.
-        EdgeToEdge.setUpRoot(findViewById(R.id.main))
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         EdgeToEdge.setUpAppBar(findViewById(R.id.app_bar), toolbar)
 
         // Set up the fragment.

@@ -23,6 +23,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
@@ -116,13 +117,14 @@ class CheeseGridFragment : Fragment() {
         // Adjust the edge-to-edge display.
         val gridPadding = resources.getDimensionPixelSize(R.dimen.spacing_tiny)
         ViewCompat.setOnApplyWindowInsetsListener(view.parent as View) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             toolbar.updateLayoutParams<AppBarLayout.LayoutParams> {
-                topMargin = insets.systemWindowInsetTop
+                topMargin = systemBars.top
             }
             grid.updatePadding(
-                left = gridPadding + insets.systemWindowInsetLeft,
-                right = gridPadding + insets.systemWindowInsetRight,
-                bottom = gridPadding + insets.systemWindowInsetBottom
+                left = gridPadding + systemBars.left,
+                right = gridPadding + systemBars.right,
+                bottom = gridPadding + systemBars.bottom
             )
             insets
         }

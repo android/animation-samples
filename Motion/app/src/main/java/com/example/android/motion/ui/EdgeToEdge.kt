@@ -17,10 +17,11 @@
 package com.example.android.motion.ui
 
 import android.os.Build
-import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import com.example.android.motion.R
 import com.google.android.material.appbar.AppBarLayout
@@ -33,12 +34,6 @@ object EdgeToEdge
     : EdgeToEdgeImpl by if (Build.VERSION.SDK_INT >= 21) EdgeToEdgeApi21() else EdgeToEdgeBase()
 
 private interface EdgeToEdgeImpl {
-
-    /**
-     * Configures a root view of an Activity in edge-to-edge display.
-     * @param root A root view of an Activity.
-     */
-    fun setUpRoot(root: ViewGroup) {}
 
     /**
      * Configures an app bar and a toolbar for edge-to-edge display.
@@ -61,18 +56,14 @@ private class EdgeToEdgeBase : EdgeToEdgeImpl
 @RequiresApi(21)
 private class EdgeToEdgeApi21 : EdgeToEdgeImpl {
 
-    override fun setUpRoot(root: ViewGroup) {
-        root.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-    }
-
     override fun setUpAppBar(appBar: AppBarLayout, toolbar: Toolbar) {
         val toolbarPadding = toolbar.resources.getDimensionPixelSize(R.dimen.spacing_medium)
-        appBar.setOnApplyWindowInsetsListener { _, windowInsets ->
-            appBar.updatePadding(top = windowInsets.systemWindowInsetTop)
+        ViewCompat.setOnApplyWindowInsetsListener(appBar) { _, windowInsets ->
+            val systemBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            appBar.updatePadding(top = systemBars.top)
             toolbar.updatePadding(
-                left = toolbarPadding + windowInsets.systemWindowInsetLeft,
-                right = windowInsets.systemWindowInsetRight
+                left = toolbarPadding + systemBars.left,
+                right = systemBars.right
             )
             windowInsets
         }
@@ -82,11 +73,12 @@ private class EdgeToEdgeApi21 : EdgeToEdgeImpl {
         val originalPaddingLeft = scrollingContent.paddingLeft
         val originalPaddingRight = scrollingContent.paddingRight
         val originalPaddingBottom = scrollingContent.paddingBottom
-        scrollingContent.setOnApplyWindowInsetsListener { _, windowInsets ->
+        ViewCompat.setOnApplyWindowInsetsListener(scrollingContent) { _, windowInsets ->
+            val systemBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
             scrollingContent.updatePadding(
-                left = originalPaddingLeft + windowInsets.systemWindowInsetLeft,
-                right = originalPaddingRight + windowInsets.systemWindowInsetRight,
-                bottom = originalPaddingBottom + windowInsets.systemWindowInsetBottom
+                left = originalPaddingLeft + systemBars.left,
+                right = originalPaddingRight + systemBars.right,
+                bottom = originalPaddingBottom + systemBars.bottom
             )
             windowInsets
         }

@@ -18,14 +18,14 @@ package com.example.android.motion.demo.containertransform
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import com.example.android.motion.R
-import com.example.android.motion.ui.EdgeToEdge
 
 class ContainerTransformActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.container_transform_activity)
-        EdgeToEdge.setUpRoot(findViewById(R.id.nav_host))
+        WindowCompat.setDecorFitsSystemWindows(window, false)
     }
 }

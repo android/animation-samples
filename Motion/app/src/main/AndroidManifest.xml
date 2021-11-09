@@ -36,6 +36,7 @@
 
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:theme="@style/Theme.Motion.CardUi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,6 +46,7 @@
 
         <activity
             android:name=".demo.dissolve.DissolveActivity"
+            android:exported="true"
             android:label="@string/dissolve_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,6 +63,7 @@
 
         <activity
             android:name=".demo.fadethrough.FadeThroughActivity"
+            android:exported="true"
             android:label="@string/fade_through_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -77,6 +80,7 @@
 
         <activity
             android:name=".demo.fabtransformation.FabTransformationActivity"
+            android:exported="true"
             android:label="@string/fab_transformation_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -93,6 +97,7 @@
 
         <activity
             android:name=".demo.reorder.ReorderActivity"
+            android:exported="true"
             android:label="@string/reorder_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -109,6 +114,7 @@
 
         <activity
             android:name=".demo.stagger.StaggerActivity"
+            android:exported="true"
             android:label="@string/stagger_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -125,6 +131,7 @@
 
         <activity
             android:name=".demo.loading.LoadingActivity"
+            android:exported="true"
             android:label="@string/loading_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -141,6 +148,7 @@
 
         <activity
             android:name=".demo.oscillation.OscillationActivity"
+            android:exported="true"
             android:label="@string/oscillation_label"
             android:theme="@style/Theme.Motion.CardUi">
             <intent-filter>
@@ -158,6 +166,7 @@
 
         <activity
             android:name=".demo.sharedelement.SharedElementActivity"
+            android:exported="true"
             android:label="@string/shared_element_label"
             android:theme="@style/Theme.Motion.Translucent">
             <intent-filter>
@@ -175,6 +184,7 @@
 
         <activity
             android:name=".demo.containertransform.ContainerTransformActivity"
+            android:exported="true"
             android:label="@string/container_transform_label"
             android:theme="@style/Theme.Motion.Translucent">
             <intent-filter>

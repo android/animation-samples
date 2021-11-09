@@ -22,6 +22,7 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Fade
 import androidx.transition.Transition
@@ -68,7 +69,7 @@ class LoadingActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         list = findViewById(R.id.list)
         setSupportActionBar(toolbar)
-        EdgeToEdge.setUpRoot(findViewById(R.id.coordinator))
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         EdgeToEdge.setUpAppBar(findViewById(R.id.app_bar), toolbar)
         EdgeToEdge.setUpScrollingContent(list)
 

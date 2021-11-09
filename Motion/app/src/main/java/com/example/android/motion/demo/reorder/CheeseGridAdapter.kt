@@ -48,7 +48,7 @@ class CheeseGridAdapter(
                 true
             }
             itemView.setOnClickListener { v ->
-                val cheese = getItem(adapterPosition)
+                val cheese = getItem(bindingAdapterPosition)
                 val context = v.context
                 Toast.makeText(
                     context,

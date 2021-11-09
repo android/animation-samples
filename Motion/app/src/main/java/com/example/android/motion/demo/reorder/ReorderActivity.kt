@@ -21,6 +21,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.motion.R
@@ -40,7 +41,7 @@ class ReorderActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         val list: RecyclerView = findViewById(R.id.list)
         setSupportActionBar(toolbar)
-        EdgeToEdge.setUpRoot(findViewById(R.id.root))
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         EdgeToEdge.setUpAppBar(findViewById(R.id.app_bar), toolbar)
         EdgeToEdge.setUpScrollingContent(list)
         pickUpElevation = resources.getDimensionPixelSize(R.dimen.pick_up_elevation).toFloat()
@@ -90,7 +91,7 @@ class ReorderActivity : AppCompatActivity() {
         ): Boolean {
             // Reorder the items in the ViewModel. The ViewModel will then notify the UI through the
             // LiveData.
-            viewModel.move(viewHolder.adapterPosition, target.adapterPosition)
+            viewModel.move(viewHolder.bindingAdapterPosition, target.bindingAdapterPosition)
             return true
         }
 

@@ -21,6 +21,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.WindowCompat
 import androidx.core.view.isVisible
 import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
@@ -48,7 +49,7 @@ class FadeThroughActivity : AppCompatActivity() {
 
         // Set up the layout.
         setSupportActionBar(toolbar)
-        EdgeToEdge.setUpRoot(findViewById(R.id.root))
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         EdgeToEdge.setUpAppBar(findViewById(R.id.app_bar), toolbar)
         EdgeToEdge.setUpScrollingContent(findViewById(R.id.content))
         Glide.with(icon).load(R.drawable.cheese_2).transform(CircleCrop()).into(icon)

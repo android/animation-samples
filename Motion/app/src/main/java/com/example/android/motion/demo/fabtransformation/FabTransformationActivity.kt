@@ -26,6 +26,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import com.bumptech.glide.Glide
@@ -81,19 +83,20 @@ class FabTransformationActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         // Set up edge-to-edge display.
-        EdgeToEdge.setUpRoot(root)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         EdgeToEdge.setUpAppBar(findViewById(R.id.app_bar), toolbar)
         val fabMargin = resources.getDimensionPixelSize(R.dimen.spacing_medium)
         ViewCompat.setOnApplyWindowInsetsListener(root) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             fab.updateLayoutParams<CoordinatorLayout.LayoutParams> {
-                leftMargin = fabMargin + insets.systemWindowInsetLeft
-                rightMargin = fabMargin + insets.systemWindowInsetRight
-                bottomMargin = fabMargin + insets.systemWindowInsetBottom
+                leftMargin = fabMargin + systemBars.left
+                rightMargin = fabMargin + systemBars.right
+                bottomMargin = fabMargin + systemBars.bottom
             }
             sheet.updateLayoutParams<CoordinatorLayout.LayoutParams> {
-                leftMargin = fabMargin + insets.systemWindowInsetLeft
-                rightMargin = fabMargin + insets.systemWindowInsetRight
-                bottomMargin = fabMargin + insets.systemWindowInsetBottom
+                leftMargin = fabMargin + systemBars.left
+                rightMargin = fabMargin + systemBars.right
+                bottomMargin = fabMargin + systemBars.bottom
             }
             insets
         }

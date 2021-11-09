@@ -179,11 +179,11 @@
                     android:layout_margin="@dimen/spacing_medium"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/favorite"
-                    android:tint="?attr/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="@id/cheese_detail"
                     app:layout_constraintEnd_toStartOf="@id/cheese_share"
                     app:layout_constraintTop_toTopOf="@id/cheese_detail"
-                    app:srcCompat="@drawable/ic_favorite" />
+                    app:srcCompat="@drawable/ic_favorite"
+                    app:tint="?attr/colorPrimary" />
 
                 <ImageButton
                     android:id="@+id/cheese_share"
@@ -192,11 +192,11 @@
                     android:layout_margin="@dimen/spacing_medium"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/share"
-                    android:tint="?attr/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="@id/cheese_detail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/cheese_detail"
-                    app:srcCompat="@drawable/ic_share" />
+                    app:srcCompat="@drawable/ic_share"
+                    app:tint="?attr/colorPrimary" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

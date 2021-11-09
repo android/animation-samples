@@ -20,6 +20,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.motion.R
 import com.example.android.motion.ui.EdgeToEdge
@@ -36,7 +37,7 @@ class OscillationActivity : AppCompatActivity() {
         val list: RecyclerView = findViewById(R.id.list)
         setSupportActionBar(toolbar)
 
-        EdgeToEdge.setUpRoot(findViewById(R.id.root))
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         EdgeToEdge.setUpAppBar(findViewById(R.id.app_bar), toolbar)
         EdgeToEdge.setUpScrollingContent(list)
 
