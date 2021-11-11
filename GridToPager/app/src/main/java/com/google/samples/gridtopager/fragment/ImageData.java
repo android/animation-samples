@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.samples.gridtopager.adapter;
+package com.google.samples.gridtopager.fragment;
 
 import androidx.annotation.DrawableRes;
 import com.google.samples.gridtopager.R;
@@ -22,11 +22,11 @@ import com.google.samples.gridtopager.R;
 /**
  * Holds the image resource references used by the grid and the pager fragments.
  */
-abstract class ImageData {
+public abstract class ImageData {
 
   // Image assets (free for commercial use, no attribution required, from pixabay.com)
   @DrawableRes
-  static final int[] IMAGE_DRAWABLES = {
+  public static final int[] IMAGE_DRAWABLES = {
       R.drawable.animal_2024172,
       R.drawable.beetle_562035,
       R.drawable.bug_189903,

@@ -15,6 +15,6 @@
   -->
 
 <resources>
-  <string name="app_name">Grid to Pager</string>
-  <string name="image_description">Image</string>
+    <string name="app_name">Grid to Pager</string>
+    <string name="image_description">Image</string>
 </resources>
