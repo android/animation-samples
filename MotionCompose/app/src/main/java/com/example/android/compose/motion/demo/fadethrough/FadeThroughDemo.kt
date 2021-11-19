@@ -28,12 +28,10 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -48,8 +46,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SmallTopAppBar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -69,46 +65,26 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.android.compose.motion.R
 import com.example.android.compose.motion.demo.Demo
+import com.example.android.compose.motion.demo.SimpleScaffold
 import com.example.android.compose.motion.ui.MotionComposeTheme
-import com.google.accompanist.insets.LocalWindowInsets
-import com.google.accompanist.insets.rememberInsetsPaddingValues
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FadeThroughDemo() {
-    Scaffold(
-        topBar = {
-            SmallTopAppBar(
-                title = {
-                    Text(text = Demo.FadeThrough.title)
-                },
-                modifier = Modifier
-                    .padding(
-                        rememberInsetsPaddingValues(
-                            insets = LocalWindowInsets.current.systemBars,
-                            applyBottom = false
-                        )
-                    )
-            )
-        },
-    ) {
-        Box(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            var expanded by rememberSaveable { mutableStateOf(false) }
-            DemoCard(
-                expanded = expanded,
-                modifier = Modifier.align(Alignment.Center)
-            )
+    SimpleScaffold(title = Demo.FadeThrough.title) {
+        var expanded by rememberSaveable { mutableStateOf(false) }
+        DemoCard(
+            expanded = expanded,
+            modifier = Modifier.align(Alignment.Center)
+        )
 
-            Button(
-                onClick = { expanded = !expanded },
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(64.dp)
-            ) {
-                Text(text = "TOGGLE")
-            }
+        Button(
+            onClick = { expanded = !expanded },
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(64.dp)
+        ) {
+            Text(text = "TOGGLE")
         }
     }
 }

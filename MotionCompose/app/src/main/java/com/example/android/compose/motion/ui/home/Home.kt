@@ -82,7 +82,8 @@ private fun DemoList(
         contentPadding = rememberInsetsPaddingValues(
             insets = LocalWindowInsets.current.systemBars,
             applyTop = false
-        )
+        ),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(items = Demo.values()) { demo ->
             DemoCard(

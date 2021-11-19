@@ -17,6 +17,7 @@
 package com.example.android.compose.motion.demo
 
 import androidx.compose.runtime.Composable
+import com.example.android.compose.motion.demo.fade.FadeDemo
 import com.example.android.compose.motion.demo.fadethrough.FadeThroughDemo
 
 enum class Demo(
@@ -25,6 +26,19 @@ enum class Demo(
     val apis: List<String>,
     val content: @Composable () -> Unit
 ) {
+    Fade(
+        title = "Layout > Fade",
+        description = """
+            A fade creates a smooth sequence between elements that fully overlap each other, such as
+            photos inside of a card or another container. When a new element enters, it fades in
+            over the current element.
+        """.trimIndent().replace('\n', ' '),
+        apis = listOf(
+            "AnimatedContent"
+        ),
+        content = { FadeDemo() }
+    ),
+
     FadeThrough(
         title = "Layout > Fade through",
         description = """
