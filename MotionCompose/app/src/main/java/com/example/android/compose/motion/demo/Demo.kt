@@ -19,6 +19,7 @@ package com.example.android.compose.motion.demo
 import androidx.compose.runtime.Composable
 import com.example.android.compose.motion.demo.fade.FadeDemo
 import com.example.android.compose.motion.demo.fadethrough.FadeThroughDemo
+import com.example.android.compose.motion.demo.loading.LoadingDemo
 
 enum class Demo(
     val title: String,
@@ -51,5 +52,17 @@ enum class Demo(
             "AnimatedContent"
         ),
         content = { FadeThroughDemo() }
+    ),
+
+    Loading(
+        title = "List > Loading",
+        description = """
+            Motion provides timely feedback and the status of user actions. An animated placeholder
+            UI can indicate that content is loading.
+        """.trimIndent().replace('\n', ' '),
+        apis = listOf(
+            "Modifier.placeholder", "AnimationSpec"
+        ),
+        content = { LoadingDemo() }
     )
 }

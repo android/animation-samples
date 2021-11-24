@@ -67,9 +67,15 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.activity:activity-compose:1.4.0'
 
-    def accompanist_version = '0.21.2-beta'
+    def accompanist_version = '0.21.3-beta'
     implementation "com.google.accompanist:accompanist-flowlayout:$accompanist_version"
     implementation "com.google.accompanist:accompanist-insets-ui:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-placeholder:$accompanist_version"
+
+    def lifecycle_version = '2.4.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+
+    implementation "androidx.paging:paging-compose:1.0.0-alpha14"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'com.google.truth:truth:1.1.3'

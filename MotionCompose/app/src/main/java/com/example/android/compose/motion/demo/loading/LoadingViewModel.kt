@@ -14,18 +14,13 @@
  * limitations under the License.
  */
 
-buildscript {
-    ext {
-        compose_version = '1.1.0-beta03'
-    }
-}
+package com.example.android.compose.motion.demo.loading
 
-plugins {
-    id 'com.android.application' version '7.2.0-alpha04' apply false
-    id 'com.android.library' version '7.2.0-alpha04' apply false
-    id 'org.jetbrains.kotlin.android' version '1.5.31' apply false
-}
+import androidx.lifecycle.ViewModel
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+class LoadingViewModel : ViewModel() {
+
+    val cheeses = Pager(PagingConfig(pageSize = 15)) { CheeseDataSource() }.flow
 }

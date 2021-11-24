@@ -27,3 +27,7 @@ https://user-images.githubusercontent.com/1237536/142575353-8ed5cc04-34e3-45ea-9
 ### [Layout > Fade through](app/src/main/java/com/example/android/compose/motion/demo/fadethrough)
 
 https://user-images.githubusercontent.com/1237536/142538271-480a5573-4231-414a-88cd-9fd9951fc792.mp4
+
+### [List > Loading](app/src/main/java/com/example/android/compose/motion/demo/loading)
+
+https://user-images.githubusercontent.com/1237536/143526001-7621d2db-1228-4011-ae84-1572909e7806.mp4
