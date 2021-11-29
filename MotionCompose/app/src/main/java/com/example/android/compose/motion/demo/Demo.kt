@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import com.example.android.compose.motion.demo.fade.FadeDemo
 import com.example.android.compose.motion.demo.fadethrough.FadeThroughDemo
 import com.example.android.compose.motion.demo.loading.LoadingDemo
+import com.example.android.compose.motion.demo.sharedaxis.SharedAxisDemo
 
 enum class Demo(
     val title: String,
@@ -52,6 +53,19 @@ enum class Demo(
             "AnimatedContent"
         ),
         content = { FadeThroughDemo() }
+    ),
+
+    SharedAxis(
+        title = "Layout > Shared axis (Y-axis)",
+        description = """
+            The shared axis pattern is used for transitions between UI elements that have a spatial
+            or navigational relationship. This demo uses a shared transformation on the Y-axis to
+            reinforce the sequential order of elements.
+        """.trimIndent().replace('\n', ' '),
+        apis = listOf(
+            "AnimatedContent"
+        ),
+        content = { SharedAxisDemo() }
     ),
 
     Loading(
