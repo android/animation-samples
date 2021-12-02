@@ -128,7 +128,7 @@ private fun DemoCard(
  * the motion spec.
  */
 @OptIn(ExperimentalAnimationApi::class)
-private fun fadeThrough(
+fun fadeThrough(
     durationMillis: Int = 300
 ): AnimatedContentScope<Boolean>.() -> ContentTransform {
     return {

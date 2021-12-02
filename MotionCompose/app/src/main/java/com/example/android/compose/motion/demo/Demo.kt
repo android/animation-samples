@@ -21,6 +21,7 @@ import com.example.android.compose.motion.demo.fade.FadeDemo
 import com.example.android.compose.motion.demo.fadethrough.FadeThroughDemo
 import com.example.android.compose.motion.demo.loading.LoadingDemo
 import com.example.android.compose.motion.demo.sharedaxis.SharedAxisDemo
+import com.example.android.compose.motion.demo.sharedtransform.SharedTransformDemo
 
 enum class Demo(
     val title: String,
@@ -53,6 +54,20 @@ enum class Demo(
             "AnimatedContent"
         ),
         content = { FadeThroughDemo() }
+    ),
+
+    SharedTransform(
+        title = "Layout > Shared transform",
+        description = """
+            Complex layout changes use a shared transformation to create smooth transitions from
+            one layout to the next. Elements are grouped together and transform as a single unit,
+            rather than animating independently. This avoids multiple transformations overlapping
+            and competing for attention.
+        """.trimIndent().replace('\n', ' '),
+        apis = listOf(
+            "updateTransition", "Transition.AnimatedContent"
+        ),
+        content = { SharedTransformDemo() }
     ),
 
     SharedAxis(
