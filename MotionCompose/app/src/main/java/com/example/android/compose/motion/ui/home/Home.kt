@@ -25,6 +25,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -107,7 +108,8 @@ private fun DemoCard(
         modifier = modifier,
         tonalElevation = 2.dp,
         shape = RoundedCornerShape(16.dp),
-        onClick = onClick
+        onClick = onClick,
+        indication = rememberRipple()
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
