@@ -20,13 +20,6 @@ can also define the duration of the animation.
 [1]: https://developer.android.com/training/material/index.html
 [2]: https://developer.android.com/guide/topics/graphics/prop-animation.html#object-animator
 
-Pre-requisites
---------------
-
-- Android SDK 28
-- Android Build Tools v28.0.3
-- Android Support Repository
-
 Screenshots
 -------------
 

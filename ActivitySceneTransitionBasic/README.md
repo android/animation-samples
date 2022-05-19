@@ -16,13 +16,6 @@ See [Defining Custom Animations][1] for all the details on how to do this.
 
 [1]: https://developer.android.com/training/material/animations.html#Transitions
 
-Pre-requisites
---------------
-
-- Android SDK 28
-- Android Build Tools v28.0.3
-- Android Support Repository
-
 Screenshots
 -------------
 
