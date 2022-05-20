@@ -19,13 +19,16 @@ package com.example.android.compose.motion.ui.home
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -41,14 +44,13 @@ import com.example.android.compose.motion.R
 import com.example.android.compose.motion.demo.Demo
 import com.example.android.compose.motion.ui.MotionComposeTheme
 import com.google.accompanist.flowlayout.FlowRow
-import com.google.accompanist.insets.LocalWindowInsets
-import com.google.accompanist.insets.rememberInsetsPaddingValues
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Home(
     onDemoSelected: (demo: Demo) -> Unit
 ) {
+    WindowInsets
     Scaffold(
         topBar = {
             SmallTopAppBar(
@@ -56,19 +58,15 @@ fun Home(
                     Text(text = stringResource(R.string.app_name))
                 },
                 modifier = Modifier
-                    .padding(
-                        rememberInsetsPaddingValues(
-                            insets = LocalWindowInsets.current.systemBars,
-                            applyBottom = false
-                        )
-                    )
+                    .statusBarsPadding()
             )
         }
-    ) {
+    ) { innerPadding ->
         DemoList(
             onDemoSelected = onDemoSelected,
             modifier = Modifier
                 .fillMaxSize()
+                .padding(innerPadding)
         )
     }
 }
@@ -80,10 +78,7 @@ private fun DemoList(
 ) {
     LazyColumn(
         modifier = modifier,
-        contentPadding = rememberInsetsPaddingValues(
-            insets = LocalWindowInsets.current.systemBars,
-            applyTop = false
-        ),
+        contentPadding = WindowInsets.navigationBars.asPaddingValues(),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(items = Demo.values()) { demo ->
@@ -98,6 +93,7 @@ private fun DemoList(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun DemoCard(
     demo: Demo,
@@ -108,8 +104,7 @@ private fun DemoCard(
         modifier = modifier,
         tonalElevation = 2.dp,
         shape = RoundedCornerShape(16.dp),
-        onClick = onClick,
-        indication = rememberRipple()
+        onClick = onClick
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
