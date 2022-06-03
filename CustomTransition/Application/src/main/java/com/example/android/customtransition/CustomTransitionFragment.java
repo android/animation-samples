@@ -20,7 +20,9 @@ import com.example.android.common.logger.Log;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.transition.Scene;
 import android.transition.Transition;
 import android.transition.TransitionManager;
@@ -74,21 +76,18 @@ public class CustomTransitionFragment extends Fragment implements View.OnClickLi
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(STATE_CURRENT_SCENE, mCurrentScene);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.show_next_scene: {
-                mCurrentScene = (mCurrentScene + 1) % mScenes.length;
-                Log.i(TAG, "Transitioning to scene #" + mCurrentScene);
-                // Pass the custom Transition as second argument for TransitionManager.go
-                TransitionManager.go(mScenes[mCurrentScene], mTransition);
-                break;
-            }
+        if (v.getId() == R.id.show_next_scene) {
+            mCurrentScene = (mCurrentScene + 1) % mScenes.length;
+            Log.i(TAG, "Transitioning to scene #" + mCurrentScene);
+            // Pass the custom Transition as second argument for TransitionManager.go
+            TransitionManager.go(mScenes[mCurrentScene], mTransition);
         }
     }
 

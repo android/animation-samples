@@ -30,13 +30,6 @@ TransitionManager is used to specify custom transitions for particular
 scene changes, and to cause scene changes with specific transitions to
 take place.
 
-Pre-requisites
---------------
-
-- Android SDK 28
-- Android Build Tools v28.0.3
-- Android Support Repository
-
 Screenshots
 -------------
 

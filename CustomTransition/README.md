@@ -29,13 +29,6 @@ TransitionManager.go(mScenes[mCurrentScene], mTransition);
 [3]: https://developer.android.com/reference/android/transition/Transition.html#createAnimator(android.view.ViewGroup, android.transition.TransitionValues, android.transition.TransitionValues)
 [4]: https://developer.android.com/reference/android/transition/TransitionManager.html#go(android.transition.Scene, android.transition.Transition)
 
-Pre-requisites
---------------
-
-- Android SDK 28
-- Android Build Tools v28.0.3
-- Android Support Repository
-
 Screenshots
 -------------
 

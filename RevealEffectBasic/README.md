@@ -24,13 +24,6 @@ Press the *Reveal* button to see the the circular reveal.
 
 [1]: http://developer.android.com/reference/android/view/ViewAnimationUtils.html#createCircularReveal(android.view.View, int, int, float, float)
 
-Pre-requisites
---------------
-
-- Android SDK 28
-- Android Build Tools v28.0.3
-- Android Support Repository
-
 Screenshots
 -------------
 
