@@ -78,11 +78,7 @@ public class MainActivity extends SampleActivityBase {
         if (item.getItemId() == R.id.menu_toggle_log) {
             mLogShown = !mLogShown;
             ViewAnimator output = findViewById(R.id.sample_output);
-            if (mLogShown) {
-                output.setDisplayedChild(1);
-            } else {
-                output.setDisplayedChild(0);
-            }
+            output.setDisplayedChild(mLogShown ? 1 : 0);
             invalidateOptionsMenu();
             return true;
         }
