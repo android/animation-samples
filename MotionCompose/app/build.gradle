@@ -60,7 +60,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation 'androidx.compose.material3:material3:1.0.0-alpha13'
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
@@ -68,7 +68,7 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.1'
 
-    def accompanist_version = '0.24.9-beta'
+    def accompanist_version = '0.24.10-beta'
     implementation "com.google.accompanist:accompanist-flowlayout:$accompanist_version"
     implementation "com.google.accompanist:accompanist-placeholder:$accompanist_version"
 
