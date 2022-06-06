@@ -26,10 +26,14 @@ import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -63,8 +67,6 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemsIndexed
 import com.example.android.compose.motion.demo.Cheese
 import com.example.android.compose.motion.demo.Demo
-import com.google.accompanist.insets.LocalWindowInsets
-import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.google.accompanist.placeholder.PlaceholderHighlight
 import com.google.accompanist.placeholder.fade
 import com.google.accompanist.placeholder.placeholder
@@ -91,20 +93,13 @@ private fun LoadingDemoContent(
     cheeses: LazyPagingItems<Cheese>,
     onRefresh: () -> Unit
 ) {
-    val systemBars = LocalWindowInsets.current.systemBars
     Scaffold(
         topBar = {
             SmallTopAppBar(
                 title = {
                     Text(text = Demo.Loading.title)
                 },
-                modifier = Modifier
-                    .padding(
-                        rememberInsetsPaddingValues(
-                            insets = systemBars,
-                            applyBottom = false
-                        )
-                    ),
+                modifier = Modifier.statusBarsPadding(),
                 actions = {
                     IconButton(onClick = onRefresh) {
                         Icon(
@@ -115,14 +110,13 @@ private fun LoadingDemoContent(
                 }
             )
         }
-    ) {
+    ) { padding ->
         val startTimeMillis = remember(cheeses) { SystemClock.uptimeMillis() }
         LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = rememberInsetsPaddingValues(
-                insets = systemBars,
-                applyTop = false
-            )
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding),
+            contentPadding = WindowInsets.navigationBars.asPaddingValues()
         ) {
             itemsIndexed(items = cheeses) { index, cheese ->
                 // Calculate the offset used to animate the placeholder.

@@ -38,6 +38,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
@@ -71,8 +72,6 @@ import com.example.android.compose.motion.demo.CheeseNames
 import com.example.android.compose.motion.demo.Demo
 import com.example.android.compose.motion.demo.SimpleScaffold
 import com.example.android.compose.motion.ui.MotionComposeTheme
-import com.google.accompanist.insets.LocalWindowInsets
-import com.google.accompanist.insets.rememberInsetsPaddingValues
 
 @Composable
 fun SharedAxisDemo() {
@@ -249,18 +248,10 @@ private fun PageContent(
     page: Page,
     modifier: Modifier = Modifier
 ) {
-    val systemBars = LocalWindowInsets.current.systemBars
     Column(
         modifier = modifier
             .verticalScroll(rememberScrollState())
-            .padding(
-                rememberInsetsPaddingValues(
-                    insets = systemBars,
-                    applyStart = false,
-                    applyTop = false,
-                    additionalBottom = 16.dp
-                )
-            ),
+            .navigationBarsPadding(),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Image(

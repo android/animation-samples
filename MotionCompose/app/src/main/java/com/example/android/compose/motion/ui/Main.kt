@@ -25,26 +25,23 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import com.example.android.compose.motion.demo.Demo
 import com.example.android.compose.motion.ui.home.Home
-import com.google.accompanist.insets.ProvideWindowInsets
 
 @Composable
 fun Main() {
-    ProvideWindowInsets {
-        MotionComposeTheme {
-            var currentDemo: Demo? by rememberSaveable {
-                mutableStateOf(null)
-            }
-            Crossfade(targetState = currentDemo) { targetDemo ->
-                if (targetDemo == null) {
-                    Home(
-                        onDemoSelected = { demo ->
-                            currentDemo = demo
-                        }
-                    )
-                } else {
-                    targetDemo.content()
-                    BackHandler { currentDemo = null }
-                }
+    MotionComposeTheme {
+        var currentDemo: Demo? by rememberSaveable {
+            mutableStateOf(null)
+        }
+        Crossfade(targetState = currentDemo) { targetDemo ->
+            if (targetDemo == null) {
+                Home(
+                    onDemoSelected = { demo ->
+                        currentDemo = demo
+                    }
+                )
+            } else {
+                targetDemo.content()
+                BackHandler { currentDemo = null }
             }
         }
     }

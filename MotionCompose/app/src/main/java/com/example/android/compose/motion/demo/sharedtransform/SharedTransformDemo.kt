@@ -33,7 +33,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Divider
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -131,7 +131,7 @@ private fun DemoCard(
                     Color.Transparent
                 }
             }
-            Divider( // TODO: Replace with Material3 Divider when it's available.
+            Divider(
                 modifier = Modifier.constrainAs(divider) {
                     top.linkTo(content.bottom)
                     start.linkTo(parent.start)
