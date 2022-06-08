@@ -69,6 +69,7 @@ fun Home(
             onDemoSelected = onDemoSelected,
             modifier = Modifier
                 .fillMaxSize()
+                .padding(it)
         )
     }
 }
@@ -98,6 +99,7 @@ private fun DemoList(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun DemoCard(
     demo: Demo,
@@ -109,7 +111,6 @@ private fun DemoCard(
         tonalElevation = 2.dp,
         shape = RoundedCornerShape(16.dp),
         onClick = onClick,
-        indication = rememberRipple()
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
