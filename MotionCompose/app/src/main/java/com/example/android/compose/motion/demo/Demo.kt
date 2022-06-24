@@ -22,6 +22,7 @@ import com.example.android.compose.motion.demo.fadethrough.FadeThroughDemo
 import com.example.android.compose.motion.demo.loading.LoadingDemo
 import com.example.android.compose.motion.demo.sharedaxis.SharedAxisDemo
 import com.example.android.compose.motion.demo.sharedtransform.SharedTransformDemo
+import com.example.android.compose.motion.demo.visibility.AnimatedVisibilityExample
 
 enum class Demo(
     val title: String,
@@ -82,7 +83,14 @@ enum class Demo(
         ),
         content = { SharedAxisDemo() }
     ),
-
+    AnimatedVisibility(
+        title = "Layout > Animating a view's visibility",
+        description = """
+            Animating the views visibility from visible to invisible
+        """.trimIndent(),
+        apis = listOf("AnimatedVisibility"),
+        content = { AnimatedVisibilityExample() }
+    ),
     Loading(
         title = "List > Loading",
         description = """
