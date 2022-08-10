@@ -17,6 +17,7 @@
 package com.example.android.compose.motion.demo
 
 import androidx.compose.runtime.Composable
+import com.example.android.compose.motion.demo.custom.CustomCanvasBouncyLoader
 import com.example.android.compose.motion.demo.fade.FadeDemo
 import com.example.android.compose.motion.demo.fadethrough.FadeThroughDemo
 import com.example.android.compose.motion.demo.loading.LoadingDemo
@@ -101,5 +102,16 @@ enum class Demo(
             "Modifier.placeholder", "AnimationSpec"
         ),
         content = { LoadingDemo() }
+    ),
+    CustomCanvasAnimation(
+        title = "Custom > Custom Drawing Canvas Animation",
+        description = """
+           A custom loading animation example using Canvas and draw APIs, combined with 
+           Animatable to show the use of the animateTo() function used sequentially.
+        """.trimIndent().replace('\n', ' '),
+        apis = listOf(
+            "Animatable"
+        ),
+        content = { CustomCanvasBouncyLoader() }
     )
 }
