@@ -87,7 +87,7 @@ fun CustomCanvasBouncyLoader() {
 }
 
 @Composable
-fun GradientCircle(modifier: Modifier = Modifier) {
+private fun GradientCircle(modifier: Modifier = Modifier) {
     val brush = remember {
         Brush.verticalGradient(listOf(Color(0xFFF56E34), Color(0xFF234EDA)))
     }
@@ -96,7 +96,7 @@ fun GradientCircle(modifier: Modifier = Modifier) {
     }
 }
 
-val bouncyAnimationSpec: SpringSpec<Float> = spring(
+private val bouncyAnimationSpec: SpringSpec<Float> = spring(
     dampingRatio = Spring.DampingRatioMediumBouncy,
     stiffness = Spring.StiffnessLow
 )
