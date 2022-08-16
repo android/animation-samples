@@ -63,14 +63,16 @@ fun CustomCanvasBouncyLoader() {
         mutableStateOf(IntSize.Zero)
     }
     Box(
-        Modifier.fillMaxSize()
+        Modifier
+            .fillMaxSize()
             .onSizeChanged {
                 // We get the size change of the whole composable, and use this to determine how
                 // big the ball should be.
                 size.value = it
             }) {
         GradientCircle(
-            Modifier.align(Alignment.TopCenter)
+            Modifier
+                .align(Alignment.TopCenter)
                 .size(26.dp)
                 .graphicsLayer {
                     // We use .graphicsLayer here to perform the animation as we are animating
