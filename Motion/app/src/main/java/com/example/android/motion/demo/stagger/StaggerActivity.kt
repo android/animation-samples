@@ -77,7 +77,7 @@ class StaggerActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.stagger, menu)
         return super.onCreateOptionsMenu(menu)
     }
