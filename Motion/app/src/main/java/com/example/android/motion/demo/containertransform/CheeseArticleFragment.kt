@@ -24,6 +24,8 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.BackEventCompat
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
@@ -35,7 +37,10 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.transition.ChangeTransform
+import androidx.transition.TransitionManager
 import com.example.android.motion.R
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.transition.MaterialContainerTransform
@@ -49,6 +54,8 @@ class CheeseArticleFragment : Fragment() {
     private val args: CheeseArticleFragmentArgs by navArgs()
 
     private val viewModel: CheeseArticleViewModel by viewModels()
+
+    private val cancelTransition = ChangeTransform()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,5 +118,45 @@ class CheeseArticleFragment : Fragment() {
         toolbar.setNavigationOnClickListener { v ->
             v.findNavController().popBackStack()
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    // This invokes the sharedElementReturnTransition, which is
+                    // MaterialContainerTransform.
+                    // TODO: It pops the scaleX/Y back to 1f. It would look nicer to retain the
+                    //       scale. How should we handle it?
+                    findNavController().popBackStack()
+                }
+
+                override fun handleOnBackProgressed(backEvent: BackEventCompat) {
+                    val progress = backEvent.progress
+                    // Translate as far as 20% of finger movement.
+                    val translation = progress * background.width * 0.2f
+                    background.translationX =
+                        if (backEvent.swipeEdge == BackEventCompat.EDGE_LEFT) {
+                            translation
+                        } else {
+                            -translation
+                        }
+                    // TODO: Consider handling backEvent.touchY to reflect the vertical movement.
+
+                    // Scale down from 100% to 50%.
+                    val scale = (2f - progress) * 0.5f
+                    background.scaleX = scale
+                    background.scaleY = scale
+                }
+
+                override fun handleOnBackCancelled() {
+                    TransitionManager.beginDelayedTransition(background, cancelTransition)
+                    background.run {
+                        translationX = 0f
+                        scaleX = 1f
+                        scaleY = 1f
+                    }
+                }
+            }
+        )
     }
 }
