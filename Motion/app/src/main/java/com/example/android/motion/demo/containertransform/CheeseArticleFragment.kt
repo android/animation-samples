@@ -119,37 +119,45 @@ class CheeseArticleFragment : Fragment() {
             v.findNavController().popBackStack()
         }
 
+        val predictiveBackMargin = resources.getDimensionPixelSize(R.dimen.predictive_back_margin)
+        var initialTouchY = -1f
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     // This invokes the sharedElementReturnTransition, which is
                     // MaterialContainerTransform.
-                    // TODO: It pops the scaleX/Y back to 1f. It would look nicer to retain the
-                    //       scale. How should we handle it?
                     findNavController().popBackStack()
                 }
 
                 override fun handleOnBackProgressed(backEvent: BackEventCompat) {
                     val progress = backEvent.progress
-                    // Translate as far as 20% of finger movement.
-                    val translation = progress * background.width * 0.2f
-                    background.translationX =
-                        if (backEvent.swipeEdge == BackEventCompat.EDGE_LEFT) {
-                            translation
-                        } else {
-                            -translation
-                        }
-                    // TODO: Consider handling backEvent.touchY to reflect the vertical movement.
+                    if (initialTouchY < 0f) {
+                        initialTouchY = backEvent.touchY
+                    }
+                    val progressY = (backEvent.touchY - initialTouchY) / background.height
 
-                    // Scale down from 100% to 50%.
-                    val scale = (2f - progress) * 0.5f
+                    // See the motion spec about the calculations below.
+                    // https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back#motion-specs
+
+                    // Shift horizontally.
+                    val maxTranslationX = (background.width / 20) - predictiveBackMargin
+                    background.translationX = progress * maxTranslationX *
+                        (if (backEvent.swipeEdge == BackEventCompat.EDGE_LEFT) 1 else -1)
+
+                    // Shift vertically.
+                    val maxTranslationY = (background.height / 20) - predictiveBackMargin
+                    background.translationY = progressY * maxTranslationY
+
+                    // Scale down from 100% to 90%.
+                    val scale = 1f - (0.1f * progress)
                     background.scaleX = scale
                     background.scaleY = scale
                 }
 
                 override fun handleOnBackCancelled() {
                     TransitionManager.beginDelayedTransition(background, cancelTransition)
+                    initialTouchY = -1f
                     background.run {
                         translationX = 0f
                         scaleX = 1f

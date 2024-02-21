@@ -21,4 +21,5 @@
     <dimen name="pick_up_elevation">8dp</dimen>
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="icon_size">24dp</dimen>
+    <dimen name="predictive_back_margin">8dp</dimen>
 </resources>
