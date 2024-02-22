@@ -31,6 +31,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewGroupCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.animation.PathInterpolatorCompat
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.core.widget.NestedScrollView
@@ -39,8 +40,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.transition.ChangeTransform
-import androidx.transition.TransitionManager
 import com.example.android.motion.R
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.transition.MaterialContainerTransform
@@ -49,13 +48,13 @@ class CheeseArticleFragment : Fragment() {
 
     companion object {
         const val TRANSITION_NAME_BACKGROUND = "background"
+
+        private val GestureInterpolator = PathInterpolatorCompat.create(0f, 0f, 0f, 1f)
     }
 
     private val args: CheeseArticleFragmentArgs by navArgs()
 
     private val viewModel: CheeseArticleViewModel by viewModels()
-
-    private val cancelTransition = ChangeTransform()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -131,11 +130,13 @@ class CheeseArticleFragment : Fragment() {
                 }
 
                 override fun handleOnBackProgressed(backEvent: BackEventCompat) {
-                    val progress = backEvent.progress
+                    val progress = GestureInterpolator.getInterpolation(backEvent.progress)
                     if (initialTouchY < 0f) {
                         initialTouchY = backEvent.touchY
                     }
-                    val progressY = (backEvent.touchY - initialTouchY) / background.height
+                    val progressY = GestureInterpolator.getInterpolation(
+                        (backEvent.touchY - initialTouchY) / background.height
+                    )
 
                     // See the motion spec about the calculations below.
                     // https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back#motion-specs
@@ -156,10 +157,10 @@ class CheeseArticleFragment : Fragment() {
                 }
 
                 override fun handleOnBackCancelled() {
-                    TransitionManager.beginDelayedTransition(background, cancelTransition)
                     initialTouchY = -1f
                     background.run {
                         translationX = 0f
+                        translationY = 0f
                         scaleX = 1f
                         scaleY = 1f
                     }
