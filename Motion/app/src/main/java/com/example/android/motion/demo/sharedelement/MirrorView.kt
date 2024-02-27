@@ -47,7 +47,7 @@ class MirrorView @JvmOverloads constructor(
             setWillNotDraw(value == null)
         }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         _substance?.draw(canvas)
     }
 }

@@ -24,17 +24,21 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.BackEventCompat
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewGroupCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.animation.PathInterpolatorCompat
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.android.motion.R
 import com.google.android.material.appbar.CollapsingToolbarLayout
@@ -44,6 +48,8 @@ class CheeseArticleFragment : Fragment() {
 
     companion object {
         const val TRANSITION_NAME_BACKGROUND = "background"
+
+        private val GestureInterpolator = PathInterpolatorCompat.create(0f, 0f, 0f, 1f)
     }
 
     private val args: CheeseArticleFragmentArgs by navArgs()
@@ -111,5 +117,55 @@ class CheeseArticleFragment : Fragment() {
         toolbar.setNavigationOnClickListener { v ->
             v.findNavController().popBackStack()
         }
+
+        val predictiveBackMargin = resources.getDimensionPixelSize(R.dimen.predictive_back_margin)
+        var initialTouchY = -1f
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    // This invokes the sharedElementReturnTransition, which is
+                    // MaterialContainerTransform.
+                    findNavController().popBackStack()
+                }
+
+                override fun handleOnBackProgressed(backEvent: BackEventCompat) {
+                    val progress = GestureInterpolator.getInterpolation(backEvent.progress)
+                    if (initialTouchY < 0f) {
+                        initialTouchY = backEvent.touchY
+                    }
+                    val progressY = GestureInterpolator.getInterpolation(
+                        (backEvent.touchY - initialTouchY) / background.height
+                    )
+
+                    // See the motion spec about the calculations below.
+                    // https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back#motion-specs
+
+                    // Shift horizontally.
+                    val maxTranslationX = (background.width / 20) - predictiveBackMargin
+                    background.translationX = progress * maxTranslationX *
+                        (if (backEvent.swipeEdge == BackEventCompat.EDGE_LEFT) 1 else -1)
+
+                    // Shift vertically.
+                    val maxTranslationY = (background.height / 20) - predictiveBackMargin
+                    background.translationY = progressY * maxTranslationY
+
+                    // Scale down from 100% to 90%.
+                    val scale = 1f - (0.1f * progress)
+                    background.scaleX = scale
+                    background.scaleY = scale
+                }
+
+                override fun handleOnBackCancelled() {
+                    initialTouchY = -1f
+                    background.run {
+                        translationX = 0f
+                        translationY = 0f
+                        scaleX = 1f
+                        scaleY = 1f
+                    }
+                }
+            }
+        )
     }
 }
